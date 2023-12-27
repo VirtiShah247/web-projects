@@ -1,5 +1,5 @@
 ﻿# Repository Content
-This repository is a collection of web development projects. Each project is designed to enhance skills in web development. Feel free to explore the projects and their respective technologies:
+This repository is a collection of web development projects. Each project is designed to enhance skills in web development. Feel free to explore the projects and their respective technologies.
 
 ## Structure
 The repository is organized into folders, each containing projects built with that technology. Below are the properties of the projects:

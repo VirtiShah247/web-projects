@@ -1,0 +1,44 @@
+:root {
+    --White: hsl(0, 0%, 100%);
+    --LightGray: hsl(212, 45%, 89%);
+    --GrayishBlue: hsl(220, 15%, 55%);
+    --DarkBlue: hsl(218, 44%, 22%);
+    --normalFontWeight: 400;
+    --boldFontWeight: 700;
+}
+body{
+    font-size: 15px;
+    font-family: "Outfit";
+    margin: 0;
+}
+
+.mainContainer {
+    display: grid;
+    place-content: center;
+    height: 100vh;
+    background-color: var(--LightGray);
+}
+.parentContainer{
+    display: grid;
+    place-items: center;
+    height: 30rem;
+    width: 18rem;
+    background-color: var(--White);
+    border-radius: 1rem;
+}
+.subContainer{
+    height: 90%;
+    width: 90%;
+}
+.imageContainer>img{
+    border-radius: 1rem;
+}
+.informationContainer { 
+    margin: 1rem 0;
+    color: var(--DarkBlue);
+    text-align: center;
+}
+.subInformationContainer{
+    text-align: center;
+    color: var(--GrayishBlue)
+}

@@ -17,13 +17,15 @@
     --DarkGrayBlue: hsl(224, 24%, 44%);
     font-size: 18px;
     font-weight: 500;
+    font-family: "Hanken Grotesk";
 
 }
 
+
 .mainContainer {
-    display: flex;
-    justify-content: center;
-    align-content: center;
+    display: grid;
+    place-content: center;
+    height: 97vh;
 }
 
 .parentContainer {
@@ -45,35 +47,41 @@
     width: 17rem;
 }
 
-.leftContainer>p {
-    width: 12rem;
-    text-align: center;
-}
-
 #circle {
     background-image: linear-gradient(to top, var(--LightSlateBlue), var(--CobaltBlue));
-    width: 8rem;
-    height: 8rem;
+    width: 9rem;
+    height: 9rem;
+    margin: 1rem 0;
     border-radius: 50%;
     text-align: center;
     color: var(--White);
 
 }
 
-#circle>div:nth-child(1) {
+#circle>p:nth-child(1) {
     margin-top: 2rem;
     font-size: 3rem;
     font-weight: 800;
 }
 
-#circle>div:nth-child(2) {
+#circle>p:nth-child(2) {
     font-size: small;
     color: var(--LightLavender);
+    position: relative;
+    bottom: 3rem;
 }
 
-.leftContainer>h2 {
+.heading2 {
+    position: relative;
+    top: 0.5rem;
     color: var(--White);
     font-weight: 800;
+}
+.leftContainer>p {
+    position: relative;
+    bottom: 1rem;
+    width: 14rem;
+    text-align: center;
 }
 
 .rightContainer {
@@ -83,8 +91,8 @@
     width: 17rem;
 }
 
-.rightContainer>h3 {
-    margin-right: 6rem;
+.summaryHeading {
+    margin-right: 8rem;
 }
 
 #reaction {
@@ -136,19 +144,19 @@
 }
 
 .contentScore {
+    font-weight:800;
     color: black;
-    font-weight: 700;
 }
 
 .contentScore>span:nth-child(2) {
     color: var(--DarkGrayBlue);
 }
 
-.rightContainer>button {
-    background-image: linear-gradient(var(--LightSlateBlue), var(--LightRoyalBlue));
+.continueButton {
+    background-color: var(--DarkGrayBlue);
+    border: none;
     color: var(--White);
     font-size: 1rem;
-    border: 1px solid var(--LightRoyalBlue);
     border-radius: 2rem;
     width: 13rem;
     height: 2.5rem;
@@ -157,37 +165,53 @@
     margin: 1rem 0;
 }
 
+.continueButton:active {
+    background-image: linear-gradient(var(--LightSlateBlue), var(--LightRoyalBlue));
+}
+
 @media screen and (max-width: 540px) {
-    .mainContainer{
+    .mainContainer {
         flex: none;
         text-align: center;
     }
+
     .parentContainer {
         display: block;
-        width:max-content;
+        width: max-content;
         height: 36rem;
         font-size: 15px;
     }
-    .leftContainer{
-        height: 15rem;
+
+    .leftContainer {
+        height: 16rem;
+        border-bottom-left-radius: 2rem;
+        border-top-right-radius: 0rem;
+        border-bottom-right-radius: 2rem;
+        border-top-left-radius: 0rem;
     }
-    #circle{
+
+    #circle {
         width: 6rem;
         height: 6rem;
+        margin: 0;
     }
-    #circle>div:nth-child(1){
-        margin-top: 1rem;
+
+    #circle>p:nth-child(1) {
+        margin-top: 0.4rem;
     }
-    .leftContainer>p{
+    
+    .leftContainer>p {
         position: relative;
-        bottom: 1.5rem;
+        bottom: 1rem;
+        width: 15rem;
+        text-align: center;
     }
-    .rightContainer{
-        height: 21rem;
+
+    .rightContainer {
+        height: 20rem;
     }
-    .rightContainer>button{
-        background-image: none;
-        background-color: var(--DarkGrayBlue);
-        border: 1px solid var(--DarkGrayBlue);
+    .continueButton{
+        margin: 0;
     }
+
 }

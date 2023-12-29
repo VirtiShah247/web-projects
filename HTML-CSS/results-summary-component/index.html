@@ -10,35 +10,24 @@
 
   <title>Results summary component</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.google.com/specimen/Hanken+Grotesk" rel="stylesheet">
-  <style>
-    .attribution {
-      font-size: 11px;
-      text-align: center;
-    }
-
-    .attribution a {
-      color: hsl(228, 45%, 44%);
-    }
-  </style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Hanken%20Grotesk">
 </head>
 
 <body>
   <div class="mainContainer">
     <div class="parentContainer">
       <div class="leftContainer">
-        <h3>Your Result</h3>
+        <h3 class="heading3">Your Result</h3>
         <div id="circle">
-          <div>76</div>
-          <div>of 100</div>
+          <p>76</p>
+          <p>of 100</p>
         </div>
-        <h2>Great</h2>
+        <h2 class="heading2">Great</h2>
         <p>You scored higher than 65% of the people who have taken these tests.</p>
       </div>
       <div class="rightContainer">
-        <h3>Summary</h3>
+        <h3 class="summaryHeading">Summary</h3>
         <div class='rightContent'>
           <div id="reaction">
             <img src="./assets/images/icon-reaction.svg" alt="Reaction" />
@@ -73,7 +62,7 @@
             </div>
           </div>
         </div>
-        <button>
+        <button class="continueButton">
           Continue
         </button>
       </div>

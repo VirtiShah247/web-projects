@@ -1,0 +1,217 @@
+:root {
+    --LightRed: hsl(0, 100%, 67%);
+    --LightRedGradient: rgba(247, 206, 206, 0.5);
+    --OrangeyYellow: hsl(39, 100%, 56%);
+    --OrangeyYellowGradient: rgb(240, 230, 211);
+    --GreenTeal: hsl(166, 100%, 37%);
+    --GreenTealGradient: hsl(165, 68%, 89%);
+    --CobaltBlue: hsl(234, 85%, 45%);
+    --CobaltBlueGradient: hsl(233, 29%, 88%);
+    --LightSlateBlue: hsl(252, 100%, 67%);
+    --LightRoyalBlue: hsl(241, 81%, 54%);
+    --VioletBlue: hsla(256, 72%, 46%, 1);
+    --PersianBlue: hsla(241, 72%, 46%, 0);
+    --White: hsl(0, 0%, 100%);
+    --PaleBlue: hsl(221, 100%, 96%);
+    --LightLavender: hsl(241, 100%, 89%);
+    --DarkGrayBlue: hsl(224, 24%, 44%);
+    font-size: 18px;
+    font-weight: 500;
+    font-family: "Hanken Grotesk";
+
+}
+
+
+.mainContainer {
+    display: grid;
+    place-content: center;
+    height: 97vh;
+}
+
+.parentContainer {
+    background-color: var(--White);
+    display: flex;
+    justify-content: center;
+    border-radius: 2rem;
+    width: 34rem;
+    height: 100%;
+    box-shadow: 0.5rem 0.5rem 1rem var(--PaleBlue);
+}
+
+.leftContainer {
+    background-image: linear-gradient(var(--LightSlateBlue), var(--LightRoyalBlue));
+    color: var(--LightLavender);
+    border-radius: 2rem;
+    display: grid;
+    place-items: center;
+    width: 17rem;
+}
+
+#circle {
+    background-image: linear-gradient(to top, var(--LightSlateBlue), var(--CobaltBlue));
+    width: 9rem;
+    height: 9rem;
+    margin: 1rem 0;
+    border-radius: 50%;
+    text-align: center;
+    color: var(--White);
+
+}
+
+#circle>p:nth-child(1) {
+    margin-top: 2rem;
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+#circle>p:nth-child(2) {
+    font-size: small;
+    color: var(--LightLavender);
+    position: relative;
+    bottom: 3rem;
+}
+
+.heading2 {
+    position: relative;
+    top: 0.5rem;
+    color: var(--White);
+    font-weight: 800;
+}
+.leftContainer>p {
+    position: relative;
+    bottom: 1rem;
+    width: 14rem;
+    text-align: center;
+}
+
+.rightContainer {
+    border-radius: 2rem;
+    display: grid;
+    place-items: center;
+    width: 17rem;
+}
+
+.summaryHeading {
+    margin-right: 8rem;
+}
+
+#reaction {
+    background-color: var(--LightRedGradient);
+    color: var(--LightRed);
+    margin-bottom: 1rem;
+    width: 13rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#memory {
+    background-color: var(--OrangeyYellowGradient);
+    color: var(--OrangeyYellow);
+    margin-bottom: 1rem;
+    width: 13rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#verbal {
+    background-color: var(--GreenTealGradient);
+    color: var(--GreenTeal);
+    margin-bottom: 1rem;
+    width: 13rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#visual {
+    background-color: var(--CobaltBlueGradient);
+    color: var(--CobaltBlue);
+    margin-bottom: 1rem;
+    width: 13rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.contentScore {
+    font-weight:800;
+    color: black;
+}
+
+.contentScore>span:nth-child(2) {
+    color: var(--DarkGrayBlue);
+}
+
+.continueButton {
+    background-color: var(--DarkGrayBlue);
+    border: none;
+    color: var(--White);
+    font-size: 1rem;
+    border-radius: 2rem;
+    width: 13rem;
+    height: 2.5rem;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 1rem 0;
+}
+
+.continueButton:active {
+    background-image: linear-gradient(var(--LightSlateBlue), var(--LightRoyalBlue));
+}
+
+@media screen and (max-width: 540px) {
+    .mainContainer {
+        flex: none;
+        text-align: center;
+    }
+
+    .parentContainer {
+        display: block;
+        width: max-content;
+        height: 36rem;
+        font-size: 15px;
+    }
+
+    .leftContainer {
+        height: 16rem;
+        border-bottom-left-radius: 2rem;
+        border-top-right-radius: 0rem;
+        border-bottom-right-radius: 2rem;
+        border-top-left-radius: 0rem;
+    }
+
+    #circle {
+        width: 6rem;
+        height: 6rem;
+        margin: 0;
+    }
+
+    #circle>p:nth-child(1) {
+        margin-top: 0.4rem;
+    }
+    
+    .leftContainer>p {
+        position: relative;
+        bottom: 1rem;
+        width: 15rem;
+        text-align: center;
+    }
+
+    .rightContainer {
+        height: 20rem;
+    }
+    .continueButton{
+        margin: 0;
+    }
+
+}

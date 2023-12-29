@@ -9,13 +9,13 @@
 body{
     font-size: 15px;
     font-family: "Outfit";
-
+    margin: 0;
 }
 
 .mainContainer {
     display: grid;
     place-content: center;
-    height: 97.9vh;
+    height: 100vh;
     background-color: var(--LightGray);
 }
 .parentContainer{

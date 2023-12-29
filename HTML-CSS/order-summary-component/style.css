@@ -1,0 +1,161 @@
+:root {
+    --PaleBlue: hsl(225, 100%, 94%);
+    --BrightBlue: hsl(245, 75%, 52%);
+    --VeryPaleBlue: hsl(225, 100%, 98%);
+    --DesaturatedBlue: hsl(224, 23%, 55%);
+    --DarkBlue: hsl(223, 47%, 23%);
+    --Violet: hsl(245, 83%, 67%);
+    --normalFontWeight: 500;
+    --boldFontWeight: 700;
+    --bolderFontWeight: 900;
+}
+
+body {
+    font-size: 16px;
+    font-weight: var(--normalFontWeight);
+    font-family: "Red Hat Display";
+    margin: 0;
+}
+
+.mainContainer {
+    display: grid;
+    place-content: center;
+    height: 100vh;
+    background: var(--PaleBlue) url(./images/pattern-background-desktop.svg) no-repeat;
+    background-size: 100% 50%;
+}
+
+.parentContainer {
+    width: 22rem;
+    background-color: white;
+    text-align: center;
+    border-radius: 1rem;
+}
+
+.imageContainer>img {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.childContainer {
+    padding: 0 1rem;
+}
+
+.summaryHeading {
+    font-weight: var(--bolderFontWeight);
+}
+
+.parentContainer>p {
+    color: var(--DesaturatedBlue);
+    font-weight: var(--normalFontWeight);
+}
+
+.planDetailParentContainer {
+    background-color: var(--VeryPaleBlue);
+    width: 90%;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    margin: 1rem;
+    border-radius: 10px;
+}
+
+.planImageContainer {
+    position: relative;
+    top: 1rem;
+    right: 2.5rem;
+}
+
+.planDetailContainer {
+    position: relative;
+    right: 2rem;
+    top: 0.2rem;
+}
+
+.planDetailContainer>p:nth-child(1) {
+    font-weight: var(--bolderFontWeight);
+}
+
+.planDetailContainer>p:nth-child(2) {
+    position: relative;
+    bottom: 1rem;
+}
+
+.planChangeButton {
+    color: var(--BrightBlue);
+    text-decoration: underline;
+    background-color: var(--VeryPaleBlue);
+    border: none;
+    position: relative;
+    left: 2.5rem;
+    font-weight: var(--bolderFontWeight);
+}
+.planChangeButton:active{
+    color: var(--Violet);
+}
+.paymentButton {
+    background-color: var(--BrightBlue);
+    color: var(--VeryPaleBlue);
+    border: none;
+    width: 85%;
+    height: 2.5rem;
+    border-radius: 5px;
+    box-shadow: 0rem 1rem 0.5rem var(--PaleBlue);
+    font-weight: var(--boldFontWeight);
+    margin-top: 1rem;
+}
+.paymentButton:active{
+    background-color: var(--Violet);
+}
+.cancelButton {
+    color: var(--DesaturatedBlue);
+    background-color: inherit;
+    border: none;
+    width: 80%;
+    height: 2rem;
+    margin: 1.5rem 0;
+    font-weight: var(--boldFontWeight);
+}
+
+@media screen and (max-width: 540px) {
+    .mainContainer{
+        background: var(--PaleBlue) url(./images/pattern-background-mobile.svg) no-repeat;
+    }
+    .parentContainer {
+        width: 20rem;
+    }
+
+    .childContainer {
+        padding: 0 2rem;
+    }
+
+    .planDetailParentContainer {
+        width: 100%;
+        margin: 1rem 0;
+    }
+
+    .planImageContainer {
+        position: relative;
+        right: 1rem;
+    }
+
+    .planDetailContainer {
+        position: relative;
+        right: 0.5rem;
+    }
+
+    .planChangeButton {
+        position: relative;
+        left: 1rem;
+    }
+
+    .paymentButton {
+        width: 100%;
+    }
+
+    .cancelButton {
+        width: 100%;
+    }
+}

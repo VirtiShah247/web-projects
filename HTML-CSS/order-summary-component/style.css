@@ -92,9 +92,11 @@ body {
     left: 2.5rem;
     font-weight: var(--bolderFontWeight);
 }
-.planChangeButton:active{
+
+.planChangeButton:active {
     color: var(--Violet);
 }
+
 .paymentButton {
     background-color: var(--BrightBlue);
     color: var(--VeryPaleBlue);
@@ -106,9 +108,11 @@ body {
     font-weight: var(--boldFontWeight);
     margin-top: 1rem;
 }
-.paymentButton:active{
+
+.paymentButton:active {
     background-color: var(--Violet);
 }
+
 .cancelButton {
     color: var(--DesaturatedBlue);
     background-color: inherit;
@@ -120,9 +124,11 @@ body {
 }
 
 @media screen and (max-width: 540px) {
-    .mainContainer{
+    .mainContainer {
         background: var(--PaleBlue) url(./images/pattern-background-mobile.svg) no-repeat;
+        background-size: 100% 25%;
     }
+
     .parentContainer {
         width: 20rem;
     }
@@ -157,5 +163,12 @@ body {
 
     .cancelButton {
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .mainContainer {
+        width: fit-content;
+        height: 46.7rem;
     }
 }

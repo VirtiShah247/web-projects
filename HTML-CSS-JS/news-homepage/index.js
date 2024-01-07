@@ -1,4 +1,4 @@
-const bodyContent = document.getElementsByClassName("parentContainer")[0].innerHTML;
+const bodyContent = document.getElementsByTagName("body")[0].innerHTML;
 const displayNavbar = () => {
     let mobileNavbarLinks = `
     <div class="mobileNavbarLinks">
@@ -14,16 +14,20 @@ const displayNavbar = () => {
         <div>
     </div>
    `
-    document.getElementsByClassName("parentContainer")[0].innerHTML = "";
-    document.getElementsByClassName("parentContainer")[0].innerHTML += mobileNavbarLinks;
-    document.getElementById("hamburgerMenuImage").addEventListener('click',displayNavbar);
+    // document.getElementsByClassName("parentContainer")[0].innerHTML = "";
+    document.getElementsByClassName("mainContainer")[0].style.backgroundColor = "rgb(163, 159, 159)";
+    document.getElementsByClassName("webImageContainer")[0].style.opacity = "0.5";
+    document.getElementsByClassName("buttonContainer")[0].style.opacity = "0.5";
+    document.getElementsByClassName("rightComponent")[0].style.opacity = "0.5";
+    document.getElementsByTagName("body")[0].innerHTML += mobileNavbarLinks;
+    document.getElementsByClassName("mainContainer")[0].addEventListener('click', hideNavbar);
 }
 const hideNavbar = () => {
-    document.getElementsByClassName("parentContainer")[0].innerHTML = bodyContent;
+    document.getElementsByTagName("body")[0].innerHTML = bodyContent;
     document.getElementById("hamburgerMenuImage").addEventListener('click',displayNavbar);
 }
 document.addEventListener('click', function (event) {
-    if(event.target.id === 'hamburgerCloseMenuImage'){
+    if(event.target.id === 'hamburgerCloseMenuImage' || event.target.className === 'mobileNavbarLinkTag'){
         hideNavbar();
     }
 })

@@ -33,7 +33,6 @@ body {
 .parentContainer {
     width: 65vw;
     margin: 2vh 0 7vh 0;
-    /* border: 1px solid red; */
 }
 
 nav {
@@ -49,9 +48,17 @@ nav {
 #hamburgerMenuImage {
     display: none;
 }
+.mobileNavbarLinks{
+    width: 65vw;
+    height: 100vh;
+    background-color: white;
+    position: absolute;
+    right: 0;
+    top: 0;
+    
 
+}
 .mobileNavbarLinks div:nth-child(1) {
-    /* float: right; */
     display: flex;
     justify-content: end;
 
@@ -76,7 +83,6 @@ nav {
     padding-left: 1.5vw;
 }
 
-/* section main Div */
 section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -84,7 +90,6 @@ section {
     padding: 4vh 0;
 }
 
-/* whole left side div */
 .leftComponent {
     display: grid;
     grid-template-rows: repeat(2, 1fr);
@@ -97,27 +102,24 @@ section {
     height: max-content;
 }
 
-/* left side content below iamge */
-.sectionContainer {
+.sectionContent {
     display: grid;
     grid-template-columns: auto auto;
     width: 44vw;
 }
 
-.leftContainer {
+.sectionLeftContainer {
     font-size: 3.5vw;
     font-weight: 900;
-    /* border: 1px solid blue; */
     display: flex;
     align-items: center;
 }
 
-.rightContainer {
-    /* border: 1px solid tomato; */
+.sectionRightContainer {
     display: grid;
 }
 
-.rightContainer>p {
+.sectionRightContainer>p {
     line-height: 1.6;
     color: var(--darkGrayishBlue);
 }
@@ -145,7 +147,7 @@ section {
     font-size: 2vw;
 }
 
-.rightComponentHeading3 {
+.rightContentHeading3 {
     padding: 0;
 }
 
@@ -160,8 +162,6 @@ section {
     margin: 2vw 0;
 }
 
-
-
 footer {
     display: flex;
     justify-content: space-between;
@@ -170,7 +170,6 @@ footer {
 .footerChildContainer {
     display: grid;
     grid-template-columns: auto 15vw;
-    /* border: 1px solid blue; */
 }
 
 .footerLeftContent {
@@ -188,9 +187,7 @@ footer {
 }
 
 .footerRightContent {
-    /* width: 90%; */
     padding-left: 0.5vw;
-    /* border: 1px solid green; */
 }
 
 .footerRightContentHeading1 {
@@ -213,7 +210,9 @@ footer {
     .parentContainer {
         width: 85vw;
     }
-
+    #navbarLogoImage{
+        height: 4vh;
+    }
     #hamburgerMenuImage {
         display: block;
     }
@@ -224,29 +223,29 @@ footer {
 
     section {
         display: block;
+        padding-bottom: 0;
     }
 
     .leftComponent {
         display: block;
     }
-    
     .webImage {
         width: 100%;
-        height: 100vh;
     }
     
-    /* left side content below iamge */
-    .sectionContainer {
+    .sectionContent {
         display: block;
         width: 100%;
     }
     
-    .leftContainer {
+    .sectionLeftContainer {
         font-size: 6vh;
         display: block;
+        margin-top: 2vh;
+        line-height: 1;
     }
     
-    .rightContainer {
+    .sectionRightContainer {
         display: block;
     }
     .buttonContainer {
@@ -254,50 +253,40 @@ footer {
         height: 6vh;
     }
     
-
     .rightComponent {
         padding: 1vh 5vw;
+        margin: 7vh 0;
     }
-
     .NewTextHeading {
         font-size: 5vh;
     }
-    .rightComponentHeading3 {
+    .rightContentHeading3 {
         margin: 1vh 0;
         padding: 0;
-    }
-    
+    }   
     .rightComponent p {
         color: var(--grayishBlue);
         font-size: 14px;
         margin: 0;
         padding: 0;
-    }
-    
+    }   
     .rightComponent hr {
         margin: 4vh 0;
     }
     
-
     footer {
         display: flex;
         flex-direction: column;
         row-gap: 4vh;
         margin: 0;
     }
-
     .footerLeftContent {
-        /* max-height: 20vh;
-        width: auto; */
-
         object-fit: cover;
         width: 25vw;
-        /* border: 1px solid blue; */
     }
 
     .footerChildContainer {
         grid-template-columns: auto auto;
         column-gap: 6vw;
-        /* border: 1px solid green; */
     }
 }

@@ -1,0 +1,33 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.mainContainer{
+    background-color: antiquewhite;
+    height: 500px;
+    display: grid;
+    place-content: center;
+}
+form>input:nth-child(1){
+    width: 200px;
+}
+#sliderContent{
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: auto;
+    /* grid-template-areas: "button image1 image2 image3 button"; */
+}
+#sliderImages>img{
+    height: 200px;
+    width: 200px;
+    padding: 0 10px;
+    /* grid-area: image; */
+}
+
+#previous, #next{
+    /* align-items: baseline; */
+    /* grid-area: button; */
+}
+#radiobutton{
+    text-align: center;
+}

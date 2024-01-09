@@ -1,6 +1,6 @@
 const slider = document.getElementById("slider");
 let startImage = 0, n = 0;
-let cycleCount;
+let cycleCount, slidesToShow;
 const data = [
     {
         id: 'image1',
@@ -43,13 +43,14 @@ const data = [
         alt: 'image8'
     }
 ]
-const radioBtn = (count) => {
-    document.getElementById("radiobutton").innerHTML = "";
+const radioBtn = () => {
+    document.getElementById("radioButton") && (document.getElementById("radioButton").innerHTML = "");
+    const count = Math.ceil(n/slidesToShow);
     for (let i = 0; i < count; i++) {
-        document.getElementById("radiobutton").innerHTML += `
+        document.getElementById("radioButton") && (document.getElementById("radioButton").innerHTML += `
             <input type="radio" name="sliderRadio" id="sliderRadio${i + 1}"
                 onclick="handleStartImageOnRadioButton(this)" /> &nbsp;
-        `;
+        `);
     }
 }
 const handleSubmit = () => {
@@ -68,12 +69,11 @@ const handleSubmit = () => {
         </div>
         <button id="next">&gt;</button>
         </div>
-    <div id="radiobutton">
+    <div id="radioButton">
     </div>
     `
     cycleCount = 0;
-    radioBtn(Number(sliderCount));
-    changeImage();
+    responsive();
     if(startImage === 0){
         document.querySelector("#previous").setAttribute("disabled",true);
     }
@@ -87,13 +87,13 @@ const handleSubmit = () => {
 }
 const handlePreviousImage = () => {
     // startImage -= 3;
-    startImage = (n + (startImage - 1)) % n;
+    startImage = (n + (startImage - slidesToShow)) % n;
     startImage === 0 && (cycleCount += 1);
     changeImage();
 }
 const handleNextImage = () => {
     // startImage += 3;
-    startImage = (startImage + 1) % n;
+    startImage = (startImage + slidesToShow) % n;
     startImage === 0 && (cycleCount += 1);
     if(startImage === 0 && cycleCount === 0){
         document.querySelector("#previous").setAttribute("disabled",true);
@@ -101,28 +101,23 @@ const handleNextImage = () => {
     else{
         document.querySelector("#previous").removeAttribute("disabled");
     }
-    // document.getElementById("sliderImages").innerHTML = `
-    //     <img src=${data[startImage - 1].url} alt=${data[startImage - 1].alt} id=${data[startImage - 1].id} />
-    //     `;
-
-    // if (n - startImage === 0) {
-    //     startImage = 0;
-    // }
-    // document.getElementById("sliderImages").innerHTML += `
-    //     <img src=${data[startImage].url} alt=${data[startImage].alt} id=${data[startImage].id} />
-    //     `;
-    // if (n - startImage === 1) {
-    //     startImage = 0;
-    //     document.getElementById("sliderImages").innerHTML += `
-    // <img src=${data[startImage].url} alt=${data[startImage + 1].alt} id=${data[startImage + 1].id} />
-    // `;
-    // }
-    // document.getElementById("sliderImages").innerHTML += `
-    // <img src=${data[startImage + 1].url} alt=${data[startImage + 1].alt} id=${data[startImage + 1].id} />
-    // `;
     changeImage();
 }
 const changeImage = () => {
+    document.getElementById("sliderImages") && (document.getElementById("sliderImages").innerHTML = '');
+    for (let imageCount = 0; imageCount < slidesToShow; imageCount++) {
+        data[(startImage + imageCount) % n] !== undefined && (document.getElementById("sliderImages").innerHTML += `
+        <img src=${data[(startImage + imageCount) % n].url} alt=${data[(startImage + imageCount) % n].alt} id=${data[(startImage + imageCount) % n].id} />
+        `)
+    }
+    document.querySelector(`#sliderRadio${Math.floor(startImage/slidesToShow)+1}`) && (document.querySelector(`#sliderRadio${Math.floor(startImage/slidesToShow)+1}`).checked = true);
+}
+const handleStartImageOnRadioButton = (ele) => {
+    startImage = slidesToShow*(ele.id.split('sliderRadio')[1]-1);
+    console.log(startImage);
+    changeImage();
+}
+const responsive = () => {
     const width = window.innerWidth;
     if (width < "768") {
         slidesToShow = 1;
@@ -136,19 +131,10 @@ const changeImage = () => {
     else if (width >= "1200") {
         slidesToShow = 4;
     }
-    document.getElementById("sliderImages").innerHTML = '';
-    for (let imageCount = 0; imageCount < slidesToShow; imageCount++) {
-        data[(startImage + imageCount) % n] !== undefined && (document.getElementById("sliderImages").innerHTML += `
-        <img src=${data[(startImage + imageCount) % n].url} alt=${data[(startImage + imageCount) % n].alt} id=${data[(startImage + imageCount) % n].id} />
-        `)
-    }
-    document.querySelector(`#sliderRadio${startImage+1}`).checked = true;
-    console.log(cycleCount);
-}
-const handleStartImageOnRadioButton = (ele) => {
-    startImage = ele.id.split('sliderRadio')[1] - 1;
+    radioBtn();
     changeImage();
 }
-window.onresize = changeImage;
+window.onload = responsive;
+window.onresize = responsive;
 
 

@@ -41,6 +41,9 @@ form>input:nth-child(1) {
 form>input:nth-child(2) {
     width: 100px;
 }
+form>input:nth-child(2):hover{
+    background-color: #c51805;
+}
 
 ::placeholder {
     color: rgba(255, 255, 255, 0.637);
@@ -93,11 +96,14 @@ img {
     color: white;
     border: none;
     border-radius: 25px;
-    font-size: 50px;
-    position: relative;
-    z-index: 1;
+    font-size: 40px;
+    position: relative;/
 }
-
+#previous:hover,
+#next:hover{
+    cursor: grab;
+    background-color: rgba(255, 255, 255, 0.484);
+}
 #previous {
     left: 55px;
 }
@@ -114,8 +120,7 @@ img {
 #radioButton {
     text-align: center;
 }
-
-input[type='radio']:after {
+input[type='radio']::after {
     width: 15px;
     height: 15px;
     border-radius: 15px;
@@ -127,8 +132,10 @@ input[type='radio']:after {
     display: inline-block;
     visibility: visible;
 }
-
-input[type='radio']:checked:after {
+input[type='radio']:hover::after{
+    background-color: #c51805;
+}
+input[type='radio']:checked::after {
     width: 15px;
     height: 15px;
     border-radius: 15px;

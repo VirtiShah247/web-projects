@@ -1,4 +1,7 @@
 const slider = document.getElementById("slider");
+const SMALL_SCREEN = 768;
+const MEDIUM_SCREEN = 992;
+const LARGE_SCREEN = 1200;
 let startImage = 0, sliderCount = 0;
 let cycleCount, slidesToShow;
 const data = [
@@ -48,7 +51,10 @@ const handlePreviousImage = () => {
     startImage = (sliderCount + (startImage - slidesToShow)) % sliderCount;
     startImage === 0 && (cycleCount += 1);
     changeImage();
-    document.querySelectorAll("img").forEach((ele)=>ele.style.animation = "slide-previous 0.5s");
+    document.querySelectorAll("img").forEach((ele) => {
+        ele.classList.remove("slide-next");
+        ele.classList.add("slide-previous");
+    });
 }
 const handleNextImage = () => {
     // startImage += 3;
@@ -61,7 +67,10 @@ const handleNextImage = () => {
         document.querySelector("#previous").removeAttribute("disabled");
     }
     changeImage();
-    document.querySelectorAll("img").forEach((ele)=>ele.style.animation = "slide-next 0.5s");
+    document.querySelectorAll("img").forEach((ele) => {
+        ele.classList.remove("slide-previous");
+        ele.classList.add("slide-next");
+    });
 }
 const handleSubmit = () => {
     event.preventDefault();
@@ -96,48 +105,56 @@ const handleSubmit = () => {
     return true;
 }
 const changeImage = () => {
-    document.getElementById("sliderImages") && (document.getElementById("sliderImages").innerHTML = '');
+    const sliderImages = document.getElementById("sliderImages");
+    sliderImages && (sliderImages.innerHTML = '');
     for (let imageCount = 0; imageCount < slidesToShow; imageCount++) {
         data[(startImage + imageCount) % sliderCount] !== undefined &&
-            (document.getElementById("sliderImages").innerHTML += `
+            (sliderImages.innerHTML += `
         <img src="${data[(startImage + imageCount) % sliderCount].url}" alt="${data[(startImage + imageCount) % sliderCount].alt}" id="${data[(startImage + imageCount) % sliderCount].id}" />
         `)
     }
     document.querySelector(`#sliderRadio${Math.floor(startImage / slidesToShow) + 1}`) && (document.querySelector(`#sliderRadio${Math.floor(startImage / slidesToShow) + 1}`).checked = true);
 }
 const radioBtn = () => {
-    document.getElementById("radioButton") && (document.getElementById("radioButton").innerHTML = "");
+    const radioButton = document.getElementById("radioButton");
+    radioButton && (radioButton.innerHTML = "");
     const count = Math.ceil(sliderCount / slidesToShow);
     for (let i = 0; i < count; i++) {
-        document.getElementById("radioButton") && (document.getElementById("radioButton").innerHTML += `
-            <input type="radio" name="sliderRadio" id="sliderRadio${i + 1}"
-                onclick="handleRadioButtonClick(this)" /> &nbsp;
-        `);
+        radioButton.innerHTML += `
+            <input type="radio" name="sliderRadio" id="sliderRadio${i + 1}" 
+            onclick = "handleRadioButtonClick(this)"/> &nbsp;
+        `;
     }
 }
 const handleRadioButtonClick = (ele) => {
     const previousStartImage = startImage;
-    startImage = slidesToShow * (ele.id.split('sliderRadio')[1] - 1);
+    startImage = slidesToShow * (Number(ele.id.split('sliderRadio')[1]) - 1);
     changeImage();
-    if(previousStartImage<startImage){
-        document.querySelectorAll("img").forEach((ele)=>ele.style.animation = "slide-next 0.5s");
+    if (previousStartImage < startImage) {
+        document.querySelectorAll("img").forEach((ele) => {
+            ele.classList.remove("slide-previous");
+            ele.classList.add("slide-next");
+        });
     }
-    else{
-        document.querySelectorAll("img").forEach((ele)=>ele.style.animation = "slide-previous 0.5s");
+    else {
+        document.querySelectorAll("img").forEach((ele) => {
+            ele.classList.remove("slide-next");
+            ele.classList.add("slide-previous");
+        });
     }
 }
 const responsive = () => {
     const width = window.innerWidth;
-    if (width < "768") {
+    if (width < SMALL_SCREEN) {
         slidesToShow = 1;
     }
-    else if (width >= "768" && width < "992") {
+    else if (width >= SMALL_SCREEN && width < MEDIUM_SCREEN) {
         slidesToShow = 2;
     }
-    else if (width >= "992" && width < "1200") {
+    else if (width >= MEDIUM_SCREEN && width < LARGE_SCREEN) {
         slidesToShow = 3;
     }
-    else if (width >= "1200") {
+    else if (width >= LARGE_SCREEN) {
         slidesToShow = 4;
     }
     radioBtn();

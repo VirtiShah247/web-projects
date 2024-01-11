@@ -14,8 +14,6 @@ body {
 
 .parentContainer {
     display: grid;
-    align-items: center;
-    align-content: center;
 }
 
 form {
@@ -76,6 +74,12 @@ form>input:nth-child(2):hover{
         transform: translateX(0%);
     }
 }
+.slide-next{
+    animation: slide-next 0.5s;
+}
+.slide-previous{
+    animation: slide-previous 0.5s;
+}
 img {
     height: 200px;
     width: 250px;
@@ -84,7 +88,6 @@ img {
     box-shadow: 5px 10px 5px rgba(0, 0, 0, 0.263);
     transition: transform 0.5s ease-in;
     animation: slide-next 0.5s;
-
 }
 
 
@@ -97,7 +100,8 @@ img {
     border: none;
     border-radius: 25px;
     font-size: 40px;
-    position: relative;/
+    z-index: 1;
+    position: relative;
 }
 #previous:hover,
 #next:hover{

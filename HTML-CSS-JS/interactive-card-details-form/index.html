@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./style.css">
+  <title>Interactive card details form</title>
+</head>
+<body>
+    <div class="mainContainer">
+        <div class="cardContainer">
+            <div class="cardImageContainer">
+                <div id="bgCardFront">
+                    <img src="./images/card-logo.svg" alt="cardLogo">
+                    <div id="imageCardNumber">
+                        0000 0000 0000 0000
+                    </div>
+                    <div id="imageCardHolderName">
+                        Jane Appleseed
+                    </div>
+                    <div id="imageExpDate">
+                        00/00
+                    </div>
+                </div>
+                <div id="bgCardBack">
+                    <div id="imageCVC">
+                        000
+                    </div>
+                </div>
+            </div>
+
+            <div class="cardFormContainer">
+                <form action="#" onsubmit="submitCardDetails()">
+                    <label for="cardHolderName" class="cardHolderName">
+                        Cardholder Name
+                        <input type="text" name="cardHolderName" id="cardHolderName" placeholder="e.g. Jane Appleseed" required>
+                    </label>
+                    <label for="cardNumber" class="cardNumber">
+                        Card Number
+                        <input type="number" name="cardNumber" id="cardNumber" placeholder="e.g. 1234 5678 9123 0000" pattern="" required>
+                    </label>
+                    <label for="expDate" class="expDate">
+                        Exp. Date (MM/YY)
+                        <div class="expDateInput">
+                            <input type="number"name="expMonth" id="expDate" placeholder="MM" min="01" max="12" required>
+                            <input type="number" name="expYear" placeholder="YY" min="1900" max="2099" required>
+                        </div>
+                    </label>
+                    <label for="CVC" class="CVC">
+                        CVC
+                        <input type="number" name="CVC" id="CVC" placeholder="e.g. 123" pattern="" required>
+                    </label>
+                    <input type="submit" value="Confirm" class="buttonComponent">
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>

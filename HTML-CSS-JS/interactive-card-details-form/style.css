@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+:root {
+    --LinearGradient: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
+    --Red: hsl(0, 100%, 66%);
+    --White: hsl(0, 0%, 100%);
+    --LightGrayishViolet: hsl(270, 3%, 87%);
+    --DarkGrayishViolet: hsl(285, 7%, 78%);
+    --VeryDarkViolet: hsl(278, 68%, 11%);
+    --normalFontWeight: 500;
+}
+html{
+    box-sizing: border-box;
+}
+body{
+    font-size: 18px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: var(--normalFontWeight);
+    margin: 0;
+    padding: 0;
+    background-color: var(--White);
+}
+div{
+    margin: 0;
+    padding: 0;
+}
+.cardContainer{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.cardImageContainer{
+    background: url("./images/bg-main-desktop.png") no-repeat;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    aspect-ratio: 1 / 1;
+}
+#bgCardFront{
+    background: url("./images/bg-card-front.png") no-repeat;
+    box-sizing: border-box;
+    height: 245px;
+    width: 447px;
+    position: relative;
+    left: 150px;
+    top: 100px; 
+    padding: 30px;
+    color: var(--White);
+    display: grid;
+    grid-template-columns: repeat(2, 193.5px);
+    grid-template-rows: repeat(4, 46.25px);
+}
+
+#bgCardFront>img{
+    grid-area: 1 / 1 / 3 / 2;
+}
+#imageCardNumber{
+    grid-area: 3 / 1 / 4 / 3;
+     display: grid;
+    align-items: end;
+    letter-spacing: 3px;
+    word-spacing: 2px;
+    font-size: 25px;
+}
+#imageCardHolderName{
+    grid-area: 4 / 1 / 5 / 2;
+    display: grid;
+    align-items: end;
+    color: var(--LightGrayishViolet);
+}
+#imageExpDate{
+    grid-area: 4 / 2 / 5 / 2;
+    display: grid;
+    place-items: end;
+    color: var(--LightGrayishViolet);
+}
+#bgCardBack{
+    background: url("./images/bg-card-back.png") no-repeat;
+    height: 245px;
+    width: 447px;
+    position: relative;
+    top: 140px;
+    left: 250px;
+    color: var(--White);
+}
+#imageCVC{
+    position: relative;
+    left: 355px;
+    top: 109px;
+}
+.cardFormContainer{
+    display: grid;
+    place-items: center;
+}
+form{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas: 
+    'name name'
+    'number number'
+    'date cvc'
+    'button button';
+    gap: 20px 15px;
+    
+}
+label{
+    color: var(--VeryDarkViolet);
+    text-transform: uppercase;
+    display: flex;
+    row-gap: 5px;
+    flex-direction: column;
+    font-variant-caps: all-small-caps;
+}
+input{
+    border: 2px solid var(--LightGrayishViolet);
+    border-radius: 7px;
+    margin: 0;
+    padding: 0;
+}
+input:not(.buttonComponent){
+    padding: 13px 0 10px 13px;
+}
+input::placeholder{
+    color: var(--DarkGrayishViolet);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+}
+.cardHolderName input, .cardNumber input{
+    width: 350px;
+}
+.cardHolderName{
+    grid-area: name;
+}
+.cardNumber{
+    grid-area: number;
+}
+.expDate{
+    grid-area: date;
+}
+.expDateInput{
+    display: flex;
+    column-gap: 8px;
+}
+.expDate input{
+    width: 70px;
+}
+.CVC{
+    grid-area: cvc;
+}
+.CVC input{
+    width: 160px;
+}
+
+.buttonComponent{
+    background-color: var(--VeryDarkViolet);
+    color: var(--White);
+    padding: 10px 0;
+    grid-area: button;
+    font-size: 18px;
+    width: 365px;
+    margin-top: 10px;
+}

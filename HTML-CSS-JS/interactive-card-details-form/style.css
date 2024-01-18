@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+
 :root {
-    --LinearGradient: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
+    --LinearGradient: hsl(249, 99%, 64%);
     --Red: hsl(0, 100%, 66%);
     --White: hsl(0, 0%, 100%);
     --LightGrayishViolet: hsl(270, 3%, 87%);
@@ -8,101 +9,172 @@
     --VeryDarkViolet: hsl(278, 68%, 11%);
     --normalFontWeight: 500;
 }
-html{
+
+html {
     box-sizing: border-box;
 }
-body{
+
+body {
     font-size: 18px;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'pace Grotesk', sans-serif;
     font-weight: var(--normalFontWeight);
     margin: 0;
     padding: 0;
-    background-color: var(--White);
 }
-div{
+
+div,p, h1 {
     margin: 0;
     padding: 0;
 }
-.cardContainer{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+
+.cardContainer {
+    /* display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100vh; */
+    /* grid-area: 
+    'image image form form'; */
+    display: flex;
+    column-gap: 300px;
+    margin: 0 auto;
 }
-.cardImageContainer{
-    background: url("./images/bg-main-desktop.png") no-repeat;
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    aspect-ratio: 1 / 1;
+
+.cardImageContainer {
+    /* background: url("./images/bg-main-desktop.png") no-repeat; */
+    /* overflow: hidden; */
+    /* grid-area: image; */
+
+    position: relative;
 }
-#bgCardFront{
-    background: url("./images/bg-card-front.png") no-repeat;
+
+.bgCardContainer {
+    position: absolute;
+    top: 110px;
+    left: 130px;
+    /* display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas:
+        'front-card front-card'
+        'back-card back-card'; */
+}
+
+#bgCardFrontContainer {
+    /* background: url("./images/bg-card-front.png") no-repeat; 
     box-sizing: border-box;
     height: 245px;
     width: 447px;
     position: relative;
     left: 150px;
-    top: 100px; 
+    top: 100px;
     padding: 30px;
     color: var(--White);
     display: grid;
     grid-template-columns: repeat(2, 193.5px);
-    grid-template-rows: repeat(4, 46.25px);
+    grid-template-rows: repeat(4, 46.25px); */
+
+    position: relative;
+    color: var(--White);
+    /* height: 245px;
+    width: 447px; */
+    top: 100px;
+    left: 100px;
 }
 
-#bgCardFront>img{
-    grid-area: 1 / 1 / 3 / 2;
+#bgCardFrontImage,
+#bgCardBackImage {
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
 }
-#imageCardNumber{
-    grid-area: 3 / 1 / 4 / 3;
-     display: grid;
-    align-items: end;
-    letter-spacing: 3px;
+
+#cardLogo {
+    /* grid-area: 1 / 1 / 3 / 2; */
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    position: absolute;
+    top: 15px;
+    left: 25px;
+}
+
+#imageCardNumber {
+    /* grid-area: 3 / 1 / 4 / 3;
+    display: grid;
+    align-items: end; */
+
+    position: absolute;
+    top: 100px;
+    left: 25px;
+    letter-spacing: 1px;
     word-spacing: 2px;
     font-size: 25px;
 }
-#imageCardHolderName{
-    grid-area: 4 / 1 / 5 / 2;
+
+#imageCardHolderName {
+    /* grid-area: 4 / 1 / 5 / 2;
     display: grid;
-    align-items: end;
+    align-items: end; */
+
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
     color: var(--LightGrayishViolet);
 }
-#imageExpDate{
-    grid-area: 4 / 2 / 5 / 2;
+
+#imageExpDate {
+    /* grid-area: 4 / 2 / 5 / 2;
     display: grid;
-    place-items: end;
+    place-items: end; */
+
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
     color: var(--LightGrayishViolet);
 }
-#bgCardBack{
-    background: url("./images/bg-card-back.png") no-repeat;
+
+#bgCardBackContainer {
+    /* background: url("./images/bg-card-back.png") no-repeat;
     height: 245px;
     width: 447px;
     position: relative;
     top: 140px;
     left: 250px;
-    color: var(--White);
-}
-#imageCVC{
+    color: var(--White); */
+
     position: relative;
-    left: 355px;
-    top: 109px;
+    /* height: 245px;
+    width: 447px; */
+    color: var(--White);
+    top: 140px;
+    left: 150px;
 }
-.cardFormContainer{
+
+#imageCVC {
+    position: absolute;
+    left: 275px;
+    top: 85px;
+}
+
+.cardFormContainer {
     display: grid;
     place-items: center;
+    /* grid-area: form; */;
 }
-form{
+
+form {
     display: grid;
     grid-template-columns: repeat(2, auto);
     grid-template-rows: repeat(4, auto);
-    grid-template-areas: 
-    'name name'
-    'number number'
-    'date cvc'
-    'button button';
+    grid-template-areas:
+        'name name'
+        'number number'
+        'date cvc'
+        'button button';
     gap: 20px 15px;
-    
+
 }
-label{
+
+label {
     color: var(--VeryDarkViolet);
     text-transform: uppercase;
     display: flex;
@@ -110,52 +182,237 @@ label{
     flex-direction: column;
     font-variant-caps: all-small-caps;
 }
-input{
+label p{
+    display: none;
+    color: var(--Red);
+    text-transform:capitalize;
+    font-variant-caps: normal;
+    font-size: 12px;
+}
+input {
     border: 2px solid var(--LightGrayishViolet);
     border-radius: 7px;
     margin: 0;
     padding: 0;
 }
-input:not(.buttonComponent){
+input:focus, input:active{
+    outline-color: var(--LinearGradient);
+}
+
+input:not(.buttonComponent) {
     padding: 13px 0 10px 13px;
 }
-input::placeholder{
+
+input::placeholder {
     color: var(--DarkGrayishViolet);
     font-family: 'Space Grotesk', sans-serif;
     font-size: 16px;
 }
-.cardHolderName input, .cardNumber input{
+
+.cardHolderName input,
+.cardNumber input {
     width: 350px;
 }
-.cardHolderName{
+
+.cardHolderName {
     grid-area: name;
 }
-.cardNumber{
+
+.cardNumber {
     grid-area: number;
 }
-.expDate{
+
+.expDate {
     grid-area: date;
 }
-.expDateInput{
+
+.expDateInput {
     display: flex;
     column-gap: 8px;
 }
-.expDate input{
+.expDateInput div{
+    flex-wrap: wrap;
+}
+.expMonthContainer>p, .expYearContainer>p{
+    margin-top: 5px
+}
+
+.expDate input {
     width: 70px;
 }
-.CVC{
+
+.CVC {
     grid-area: cvc;
 }
-.CVC input{
+
+.CVC input {
     width: 160px;
 }
 
-.buttonComponent{
+.buttonComponent {
     background-color: var(--VeryDarkViolet);
     color: var(--White);
+    border: 2px solid var(--LightGrayishViolet);
+    border-radius: 7px;
+    margin: 0;
+    padding: 0;
     padding: 10px 0;
     grid-area: button;
     font-size: 18px;
     width: 365px;
     margin-top: 10px;
+}
+
+#completeContainer{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+.heading1{
+    text-transform: uppercase;
+    font-weight: 500;
+    margin: 30px 0 10px 0;
+}
+#completeContainer>p{
+    margin-bottom: 40px;
+}
+@media screen and (max-width: 1024px) {
+    .cardContainer {
+        column-gap: 200px;
+    }
+
+    #bgMainDesktopImage {
+        width: 400px;
+    }
+
+    .bgCardContainer {
+        top: 30px;
+        left: 50px;
+    }
+    #bgCardFrontContainer{
+        left: 40px;
+    }
+    #bgCardBackContainer {
+        left: 70px;
+    }
+
+    .cardHolderName input,
+    .cardNumber input {
+        width: 300px;
+    }
+
+    .expDate input {
+        width: 50px;
+    }
+
+    .CVC input {
+        width: 135px;
+    }
+
+    .buttonComponent {
+        width: 310px;
+
+    }
+}
+@media (max-width: 800px) and (min-width: 400px) {
+    .cardContainer {
+        column-gap: 100px;
+    }
+
+    /* #bgMainDesktopImage {
+        width: 300px;
+    }
+
+    .bgCardContainer {
+        top: 10px;
+        left: 0px;
+    }
+
+    #bgCardBackContainer {
+        top: 140px;
+        left: 70px;
+    } */
+
+    .cardHolderName input,
+    .cardNumber input {
+        width: 300px;
+    }
+
+    .expDate input {
+        width: 50px;
+    }
+
+    .CVC input {
+        width: 135px;
+    }
+
+    .buttonComponent {
+        width: 310px;
+
+    }
+}
+@media screen and (max-width: 400px) {
+    .cardContainer {
+        width: fit-content;
+        flex-direction: column;
+        row-gap: 70px;
+        align-items: center;
+    }
+
+    .bgCardContainer {
+        /* display: none; */
+        display: flex;
+        flex-direction: column-reverse;
+        top: 0px;
+        left: 0px;
+    }
+    #bgCardFrontContainer{
+        /* position: absolute; */
+        top: -36px;
+        left: 25px;
+        z-index: 1;
+    }
+    #bgCardBackContainer{
+        top: 40px;
+        /* left: 80px; */
+    }
+    #bgCardFrontImage,
+    #bgCardBackImage {
+        /* height: 150px; */
+        width: 300px;
+    }
+    #imageCVC {
+        left: 230px;
+        top: 73px;
+        font-size: 16px;
+    }
+    #cardLogo {
+        width: 60px;
+        top: 20px;
+        left: 15px;
+    }
+    
+    #imageCardNumber {
+        top: 90px;
+        left: 15px;
+        letter-spacing: 2px;
+        /* word-spacing: 0px; */
+        font-size: 20px;
+    }
+    
+    #imageCardHolderName {
+        bottom: 20px;
+        left: 15px;
+        font-size: 16px;
+    }
+    
+    #imageExpDate {
+        bottom: 20px;
+        right: 15px;
+        font-size: 16px;
+    }
+    .cardFormContainer{
+        width: 100%;
+        align-items: center;
+    }
 }

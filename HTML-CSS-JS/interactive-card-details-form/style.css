@@ -171,6 +171,7 @@ form {
         'date cvc'
         'button button';
     gap: 20px 15px;
+    width: min-content;
 
 }
 
@@ -231,10 +232,13 @@ input::placeholder {
     column-gap: 8px;
 }
 .expDateInput div{
+    display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
 }
 .expMonthContainer>p, .expYearContainer>p{
-    margin-top: 5px
+    margin-top: 5px;
+    /* display: flex; */
 }
 
 .expDate input {

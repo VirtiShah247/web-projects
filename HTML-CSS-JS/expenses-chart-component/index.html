@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <title>Expenses chart component</title>
+</head>
+
+<body>
+  <div class="mainContainer">
+    <div class="parentContainer">
+      <header>
+        <div class="leftContainer">
+          <p>My balance</p>
+          <h2 id="currentBalanceHeading2">$921.48</h2>
+        </div>
+        <div class="rightContainer">
+          <img src="./images/logo.svg" alt="logo" class="logoImage" />
+        </div>
+      </header>
+      <main>
+        <h2 id="mainHeading2">Spending - Last 7 days</h2>
+        <div class="daysBarPlot">
+          <div class="dayBar">
+            <h5 class="activeAmount">
+            </h5>
+            <div id="mon"></div>
+            <p>mon</p>
+          </div>
+          <div class="dayBar">
+            <h5 class="activeAmount">
+            </h5>
+            <div id="tue"></div>
+            <p>tue</p>
+          </div>
+          <div class="dayBar">
+            <h5 class="activeAmount">
+            </h5>
+            <div id="wed"></div>
+            <p>wed</p>
+          </div>
+          <div class="dayBar">
+            <h5 class="activeAmount">
+            </h5>
+            <div id="thu"></div>
+            <p>thu</p>
+          </div>
+          <div class="dayBar">
+            <h5 class="activeAmount">
+            </h5>
+            <div id="fri"></div>
+            <p>fri</p>
+          </div>
+          <div class="dayBar">
+            <h5 class="activeAmount">
+            </h5>
+            <div id="sat"></div>
+            <p>sat</p>
+          </div>
+          <div class="dayBar">
+            <h5 class="activeAmount">
+            </h5>
+            <div id="sun"></div>
+            <p>sun</p>
+          </div>
+        </div>
+        <hr />
+        <p>Total this month</p>
+        <footer>
+          <div class="leftContainer">
+            <h1 id="currentMonthAmountHeading1">$478.33</h1>
+          </div>
+          <div class="rightContainer">
+            <h5>+2.4%</h5>
+            <p>from last month</p>
+          </div>
+        </footer>
+      </main>
+    </div>
+  </div>
+  <script src="./index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,210 @@
+:root {
+    --SoftRed: hsl(10, 79%, 65%);
+    --Cyan: hsl(186, 34%, 60%);
+    --DarkBrown: hsl(25, 47%, 15%);
+    --MediumBrown: hsl(28, 10%, 53%);
+    --Cream: hsl(27, 66%, 92%);
+    --VeryPaleOrange: hsl(33, 100%, 98%);
+    --normalFontWeight: 400;
+    --boldFontWeight: 700;
+}
+
+body {
+    font-size: 18px;
+    font-family: 'DM Sans';
+    margin: 0;
+    padding: 0;
+}
+
+p,
+h1,
+h2,
+h5 {
+    margin: 0;
+    padding: 0;
+}
+
+main p {
+    color: var(--MediumBrown);
+    font-size: 15px;
+}
+
+.mainContainer {
+    background-color: var(--Cream);
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+.parentContainer{
+    margin: 20px 0;
+}
+header {
+    background-color: var(--SoftRed);
+    margin-bottom: 10px;
+    height: 70px;
+    align-items: center;
+    color: var(--VeryPaleOrange);
+    font-size: 15px;
+    padding: 0 20px;
+    border-radius: 10px;
+}
+
+header,
+footer {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+main {
+    padding: 30px 20px;
+    border-radius: 10px;
+}
+
+main,
+footer {
+    background-color: var(--VeryPaleOrange);
+}
+
+header p {
+    color: var(--Cream);
+}
+
+.logoImage {
+    width: 50px;
+}
+.rightContainer {
+    text-align: end;
+}
+
+#mon {
+    height: 40px;
+}
+
+#tue {
+    height: 90px;
+}
+
+#wed {
+    height: 140px;
+    background-color: var(--Cyan);
+}
+
+#thu {
+    height: 80px;
+}
+
+#fri {
+    height: 60px;
+}
+
+#sat {
+    height: 120px;
+}
+
+#sun {
+    height: 70px;
+}
+
+.daysBarPlot {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    flex-direction: row;
+    align-items: end;
+    column-gap: 7px;
+    margin: 30px 0 20px;
+}
+.dayBar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.dayBar>div {
+    width: 40px;
+    border-radius: 5px;
+}
+
+.dayBar>div:not(#wed) {
+    background-color: var(--SoftRed);
+}
+.dayBar p{
+    text-align: center;
+}
+.activeAmount{
+    display: none;
+    background-color: var(--DarkBrown);
+    color: var(--VeryPaleOrange);
+    width: 50px;
+    padding: 5px 0;
+    border-radius: 5px;
+    margin: 0;
+    margin-bottom: 5px;
+    align-items: center;
+    font-size: 15px;
+}
+
+@media screen and (max-width:400px){
+    main p, header{
+        font-size: 13px;
+    }
+    header{
+        padding: 0 10px;
+    }
+    main{
+        padding: 20px 10px;
+    }
+    header,
+    footer{
+        grid-template-columns: 2fr auto;
+    }
+    #mainHeading2{
+        font-size: 23px;
+    }
+    .logoImage{
+        width: 40px;
+    }
+    .dayBar>div {
+        width: 30px;
+        border-radius: 3px;
+    }
+    .daysBarPlot{
+        column-gap: 7px;
+    }
+    .dayBar p{
+        font-size: 14px;
+    }
+    #currentMonthAmountHeading1{
+        font-size: 30px;
+    }
+    .activeAmount{
+        width: 43px;
+        padding: 1px 0;
+        border-radius: 3px;
+        font-size: 13px;
+    }
+}
+@media screen and (max-width:285px){
+    .daysBarPlot{
+        column-gap: 4px;
+    }
+    .activeAmount{
+        width: 35px;
+        font-size: 10px;
+    }
+}
+@media screen and (max-width:260px){
+    main p, header{
+        font-size: 11px;
+    }
+    #mainHeading2{
+        font-size: 21px;
+    }
+    #currentMonthAmountHeading1{
+        font-size: 25px;
+    }
+    .daysBarPlot{
+        column-gap: 2px;
+    }
+    .activeAmount{
+        width: 33px;
+        font-size: 10px;
+    }
+}

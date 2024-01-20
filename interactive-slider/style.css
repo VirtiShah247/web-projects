@@ -1,0 +1,169 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.mainContainer {
+    background-color: #fac69f;
+    height: 745px;
+    width: 100%;
+    display: grid;
+    place-content: center;
+    text-align: center;
+}
+
+.parentContainer {
+    display: grid;
+}
+
+form {
+    margin: 100px 0;
+    display: flex;
+    column-gap: 10px;
+    justify-content: center;
+}
+
+form>input {
+    background-color: #E25E3E;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    height: 50px;
+}
+
+form>input:nth-child(1) {
+    width: 500px;
+}
+
+form>input:nth-child(2) {
+    width: 100px;
+}
+form>input:nth-child(2):hover{
+    background-color: #c51805;
+}
+
+::placeholder {
+    color: rgba(255, 255, 255, 0.637);
+}
+
+#slider {
+    display: grid;
+    gap: 40px;
+}
+
+#sliderContent {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    align-items: center;
+    justify-content: center;
+}
+@keyframes slide-next {
+    0%{
+        transform: translateX(30%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}
+@keyframes slide-previous {
+    0%{
+        transform: translateX(-30%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}
+.slide-next{
+    animation: slide-next 0.5s;
+}
+.slide-previous{
+    animation: slide-previous 0.5s;
+}
+img {
+    height: 200px;
+    width: 250px;
+    margin: 0 3px;
+    border-radius: 25px;
+    box-shadow: 5px 10px 5px rgba(0, 0, 0, 0.263);
+    transition: transform 0.5s ease-in;
+    animation: slide-next 0.5s;
+}
+
+
+#previous,
+#next {
+    height: 50px;
+    width: 50px;
+    background-color: rgba(255, 255, 255, 0);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 40px;
+    z-index: 1;
+    position: relative;
+}
+#previous:hover,
+#next:hover{
+    cursor: grab;
+    background-color: rgba(255, 255, 255, 0.484);
+}
+#previous {
+    left: 55px;
+}
+
+#previous:disabled {
+    color: rgba(255, 255, 255, 0.543);
+    cursor: not-allowed;
+}
+
+#next {
+    right: 55px;
+}
+
+#radioButton {
+    text-align: center;
+}
+input[type='radio']::after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #E25E3E;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+}
+input[type='radio']:hover::after{
+    background-color: #c51805;
+}
+input[type='radio']:checked::after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #c51805;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+}
+
+@media screen and (max-width: 768px) {
+    form {
+        flex-direction: column;
+        row-gap: 10px;
+        align-items: center;
+    }
+
+    form>input {
+        font-size: 17px;
+    }
+
+    form>input:nth-child(1) {
+        width: 250px;
+    }
+}

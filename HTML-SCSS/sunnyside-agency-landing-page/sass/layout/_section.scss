@@ -1,0 +1,36 @@
+@use "../abstracts" as *;
+// $image-width: 100%;
+// $image-height: 100%;
+$image-width: 100%;
+$image-height: 600px;
+
+.section__row {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+}
+
+.section__col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // align-items: center;    
+}
+
+.section__col--transform {
+    // display: grid;
+    // place-items: center;
+    padding: 0 100px 0 170px;
+}
+
+.section__col--stand-out {
+    padding: 0 170px 0 100px;
+}
+
+.section__image {
+    width: $image-width;
+    height: $image-height;
+}
+.section__col p {
+    line-height: 140%;
+}
+@include backgroundImage($photography: true, $graphic-design: true, $transform: false, $stand-out: false);

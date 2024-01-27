@@ -1,0 +1,52 @@
+@use "./variables" as *;
+@use "sass:meta";
+
+@mixin buttonBoxShadow($buttons...) {
+    @each $name, $color in meta.keywords($buttons) {
+        .button--#{$name} {
+            box-shadow: 0px 17px 3px rgba($color: $color, $alpha: 0.4);
+
+            &:hover{
+            box-shadow: 0px 17px 3px rgba($color: $color, $alpha: 1.0);
+            }
+        }
+    }
+}
+
+@mixin backgroundImage($names...) {
+    @each $name, $state in meta.keywords($names) {
+        @if $state ==true {
+            .section__col--#{$name} {
+                justify-content: end;
+                align-items: center;
+                background: url(./../images/desktop/image-#{$name}.jpg) no-repeat;
+                height: 600px;
+                background-size: 100% 100%;
+                max-width: 100%;
+                text-align: center;
+
+                @if $name =="photography" {
+                    color: $dark-blue;
+                }
+
+                @else if $name =="graphic-design" {
+                    color: $dark-desaturated-cyan;
+                }
+
+                & p {
+                    margin: 20px 0 50px;
+                    padding: 0 190px;
+                }
+
+            }
+        }
+
+        @else {
+            .section__col--#{$name} p {
+                color: $dark-grayish-blue;
+                margin: 50px 0;
+            }
+        }
+
+    }
+}

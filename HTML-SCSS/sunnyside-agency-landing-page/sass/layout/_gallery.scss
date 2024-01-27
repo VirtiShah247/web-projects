@@ -1,0 +1,12 @@
+$gallery-image-width: 380px;
+$gallery-image-height: 500px;
+.gallery{
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+}
+.gallery__image{
+    width: $gallery-image-width;
+    height: $gallery-image-height;
+    height: auto;
+    max-width: 100%;
+}

@@ -1,0 +1,14 @@
+@use "../abstracts" as *;
+
+.button {
+    font-family: $font-family-fraunces;
+    text-transform: uppercase;
+    background-color: $white;
+    border: none;
+    border-radius: 25px;
+    height: 10px;
+    width: 150px;
+    font-size: 18px;
+}
+
+@include buttonBoxShadow($warning: $yellow, $danger: $soft-red);

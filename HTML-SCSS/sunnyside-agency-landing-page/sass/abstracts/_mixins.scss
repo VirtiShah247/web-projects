@@ -16,8 +16,8 @@
 
 @mixin backgroundImage($names...) {
     @each $name, $state in meta.keywords($names) {
-        @if $state ==true {
-            .section__col--#{$name} {
+        @if $state == true {
+            .section__content--#{$name} {
                 justify-content: end;
                 align-content: end;
                 background: url(./../images/desktop/image-#{$name}.jpg) no-repeat;
@@ -61,7 +61,7 @@
         }
 
         @else {
-            .section__col--#{$name} p {
+            .section__content--#{$name} p {
                 color: $dark-grayish-blue;
                 margin: 50px 0;
 

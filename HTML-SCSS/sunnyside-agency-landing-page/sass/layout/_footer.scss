@@ -1,10 +1,10 @@
 @use "../abstracts" as *;
 
 .footer {
-    background-color: rgba($color: $dark-moderate-cyan, $alpha: 0.6);
+    background-color: rgba($color: $dark-moderate-cyan, $alpha: 0.5);
     color: $dark-moderate-cyan;
     text-align: center;
-    padding: 50px 500px;
+    padding: 50px 0;
 }
 
 .footer__logo {

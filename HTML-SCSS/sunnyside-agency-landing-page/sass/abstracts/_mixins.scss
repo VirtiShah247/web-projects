@@ -1,4 +1,5 @@
 @use "./variables" as *;
+@use "./breakpoints" as *;
 @use "sass:meta";
 
 @mixin buttonBoxShadow($buttons...) {
@@ -18,10 +19,10 @@
         @if $state ==true {
             .section__col--#{$name} {
                 justify-content: end;
-                align-items: center;
+                align-content: end;
                 background: url(./../images/desktop/image-#{$name}.jpg) no-repeat;
-                height: 600px;
                 background-size: 100% 100%;
+                height: 600px;
                 max-width: 100%;
                 text-align: center;
 
@@ -35,8 +36,26 @@
 
                 & p {
                     margin: 20px 0 50px;
-                    padding: 0 190px;
+                    padding: 0 170px;
+                    // padding: 0 calc(130px + 1.5625vw);
+
+                    @media screen and (max-width: $layout-breakpoint-xl-large){
+                        padding: 0 100px;
+                    }
+                    @media screen and (max-width: $layout-breakpoint-large){
+                        padding: 0 40px;
+                        // margin:0 0 10px;
+                    }
                 }
+
+                // @media screen and (max-width: $layout-breakpoint-xl-large){
+                //     height: 427px;
+                // }
+                // @media screen and (max-width: $layout-breakpoint-large){
+                //     height: 320px;
+                // }
+
+              
 
             }
         }
@@ -45,6 +64,13 @@
             .section__col--#{$name} p {
                 color: $dark-grayish-blue;
                 margin: 50px 0;
+
+                @media screen and (max-width: $layout-breakpoint-large){
+                    margin: 20px 0;
+                }
+                @media screen and (max-width: $layout-breakpoint-small){
+                    margin: 10px 0;
+                }
             }
         }
 

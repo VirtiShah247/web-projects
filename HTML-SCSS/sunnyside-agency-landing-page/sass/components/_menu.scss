@@ -1,19 +1,85 @@
 @use "../abstracts" as *;
-$button-height: 60px;
+$button-height: 50px;
 $button-width: 150px;
-.menu{
-    display: flex;
+
+.menu {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
     column-gap: 35px;
     justify-content: end;
     // background-color: yellow;
+
+    &--mobile {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(4, 1fr);
+        row-gap: 20px;
+        justify-content: center;
+        align-items: center;
+        background-color: $white;
+        height: auto;
+        max-width: 100%;
+        padding-bottom: 48px;
+
+        & .menu__item {
+            .menu__link {
+                color: $very-dark-desaturated-blue;
+            }
+
+            &--contact {
+                display: grid;
+                justify-content: center;
+                .menu__link{
+                    background-color: $yellow;
+                    align-content: center;
+                    bottom: 0;
+                    height: $button-height * 0.75;
+                    // width: 100%;
+                }
+            }
+        }
+
+
+        &::before {
+            content: "";
+            position: relative;
+            bottom: 28px;
+            left: 90.5%;
+            width: 0;
+            border-right: 35px solid $white;
+            border-bottom: 21px solid transparent;
+            transform: rotate(90deg);
+        }
+    }
+
+    @media screen and (max-width: $layout-breakpoint-small) {
+        display: none;
+    }
 }
-.menu__item{
+
+.hamburger {
+    display: none;
+
+    @media screen and (max-width: $layout-breakpoint-small) {
+        display: flex;
+        justify-content: end;
+    }
+}
+
+.menu__item {
     // font-size: 16px;
-    font-weight: 100;
-    color: rgba($color: $white, $alpha: 0.8);
     // background-color: red;
 }
-.menu__item--contact{
+
+.menu__link {
+    text-decoration: none;
+    color: rgba($color: $white, $alpha: 0.8);
+    font-weight: 100;
+
+
+}
+
+.menu__item--contact .menu__link {
     height: $button-height;
     width: $button-width;
     background-color: $white;
@@ -21,14 +87,18 @@ $button-width: 150px;
     color: $very-dark-desaturated-blue;
     text-transform: uppercase;
     font-family: $font-family-fraunces;
-    font-size: 17px;
+    font-size: 15px;
     position: relative;
-    bottom: 18px;
+    bottom: 12px;
     display: grid;
     place-items: center;
 
-    &:hover{
+    &:hover {
         background-color: rgba($color: $white, $alpha: 0.1);
         color: rgba($color: $white, $alpha: 0.8);
     }
+
+    // @media screen and (max-width: $layout-breakpoint-small){
+    //     display: none;
+    // }
 }

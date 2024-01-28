@@ -16,12 +16,24 @@
     <header class="header">
       <navbar class="navbar">
         <img src="./images/logo.svg" alt="logo" class="navbar__logo">
-        <div class="menu">
-          <div class="menu__item">About</div>
-          <div class="menu__item">Services</div>
-          <div class="menu__item">Projects</div>
-          <div class="menu__item menu__item--contact">Contact</div>
+        <div class="hamburger">
+          <img src="./images/icon-hamburger.svg" alt="icon-hamburger" class="hamburger__image">
         </div>
+        <div class="menu">
+          <div class="menu__item menu__item--about">
+            <a href="#" class="menu__link">About</a>
+          </div>
+          <div class="menu__item menu__item--services">
+            <a href="#" class="menu__link">Services</a>
+          </div>
+          <div class="menu__item menu__item--projects">
+            <a href="#" class="menu__link">Projects</a>
+          </div>
+          <div class="menu__item menu__item--contact">
+            <a href="#" class="menu__link">Contact</a>
+          </div>
+        </div>
+       
       </navbar>
       <h1 class="header__title heading1">
         We are creatives
@@ -41,12 +53,19 @@
           Learn more
         </button>
       </div>
-      <img src="./images/desktop/image-transform.jpg" alt="image-transform"
-        class="section__image section__image--transform">
+      <picture>
+        <source media="(max-width: 576px)" srcset="./images/mobile/image-transform.jpg">
+        <img src="./images/desktop/image-transform.jpg" alt="image-transform"
+          class="section__image section__image--transform">
+      </picture>
+
     </div>
     <div class="section__row">
-      <img src="./images/desktop/image-stand-out.jpg" alt="image-stand-out"
-        class="section__image section__image--stand-out">
+      <picture>
+        <source media="(max-width: 576px)" srcset="./images/mobile/image-stand-out.jpg">
+        <img src="./images/desktop/image-stand-out.jpg" alt="image-stand-out"
+          class="section__image section__image--stand-out">
+      </picture>
       <div class=" section__col section__col--stand-out">
         <h2 class="heading2">
           Stand out to the right audience
@@ -126,10 +145,22 @@
     </div>
   </article>
   <section class="gallery">
-    <img src="./images/desktop/image-gallery-milkbottles.jpg" alt="image-gallery-milkbottles" class="gallery__image">
-    <img src="./images/desktop/image-gallery-orange.jpg" alt="image-gallery-orange" class="gallery__image">
-    <img src="./images/desktop/image-gallery-cone.jpg" alt="image-gallery-cone" class="gallery__image">
-    <img src="./images/desktop/image-gallery-sugarcubes.jpg" alt="image-gallery-sugarcubes" class="gallery__image">
+    <picture>
+      <source media="(max-width: 576px)" srcset="./images/mobile/image-gallery-milkbottles.jpg">
+      <img src="./images/desktop/image-gallery-milkbottles.jpg" alt="image-gallery-milkbottles" class="gallery__image">
+    </picture>
+    <picture>
+      <source media="(max-width: 576px)" srcset="./images/mobile/image-gallery-orange.jpg">
+      <img src="./images/desktop/image-gallery-orange.jpg" alt="image-gallery-orange" class="gallery__image">
+    </picture>
+    <picture>
+      <source media="(max-width: 576px)" srcset="./images/mobile/image-gallery-cone.jpg">
+      <img src="./images/desktop/image-gallery-cone.jpg" alt="image-gallery-cone" class="gallery__image">
+    </picture>
+    <picture>
+      <source media="(max-width: 576px)" srcset="./images/mobile/image-gallery-sugar-cubes.jpg">
+      <img src="./images/desktop/image-gallery-sugarcubes.jpg" alt="image-gallery-sugarcubes" class="gallery__image">
+    </picture>
   </section>
   <footer class="footer">
     <img src="./images/logo.svg" alt="footer-logo" class="footer__logo">
@@ -152,9 +183,7 @@
     </div>
   </footer>
 
-
-  <!-- 
-  Contact -->
+  <script src="index.js"></script>
 </body>
 
 </html>

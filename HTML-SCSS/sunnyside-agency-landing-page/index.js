@@ -10,8 +10,6 @@ const removeMobileMenu = () => {
 }
 const handleMenuClick = () => {
     const menuMobile = menu.classList.value.split(" ")[1];
-    console.log(menuMobile);
-    console.log(window.screen.width);
     if(menuMobile === undefined){
         menu.classList.add("menu--mobile");
         menu.style.display = "grid";

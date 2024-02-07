@@ -1,0 +1,18 @@
+@use "../abstracts" as *;
+.replies {
+    display: grid;
+    align-content: center;
+    gap: 20px;
+    margin-left: 40px;
+    padding-left: 40px;
+    border-left: 3px solid $light-gray;
+
+    @media screen and (max-width: $layout-breakpoint-xl-large){
+        margin-left: 30px;
+        padding-left: 30px;
+    }
+    @media screen and (max-width: $layout-breakpoint-medium){
+        margin-left: 0px;
+        padding-left: 20px;
+    }
+}

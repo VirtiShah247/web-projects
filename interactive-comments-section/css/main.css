@@ -167,6 +167,10 @@ button {
   }
 }
 
+.score__button:hover {
+  cursor: grab;
+}
+
 .score__count {
   color: hsl(238, 40%, 52%);
   font-weight: 700;
@@ -187,6 +191,10 @@ button {
 .button {
   padding: 10px;
   text-align: end;
+}
+.button:hover {
+  cursor: grab;
+  opacity: 0.5;
 }
 @media screen and (max-width: 1200px) {
   .button {
@@ -244,6 +252,10 @@ button {
 }
 .textarea:focus {
   outline: 1px solid hsl(238, 40%, 52%);
+  cursor: grab;
+}
+.textarea:hover {
+  cursor: grab;
 }
 @media screen and (max-width: 576px) {
   .textarea {

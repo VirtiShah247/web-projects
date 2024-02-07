@@ -88,6 +88,9 @@ $user-image-height: 20px;
         padding: 10px 0;
     }
 }
+.score__button:hover{
+    cursor: grab;
+}
 .score__count{
     color: $moderate-blue;
     font-weight: $font-weight-bold;
@@ -98,6 +101,8 @@ $user-image-height: 20px;
     grid-template-columns: repeat(2, auto);
     justify-content: end;
 
+   
+    
     @media screen and (max-width: $layout-breakpoint-small){
         grid-area: 6 / 3 / 8 / 7;
     }
@@ -105,8 +110,12 @@ $user-image-height: 20px;
 .button{
     padding: 10px;
     text-align: end;
-
     
+    &:hover{
+        cursor: grab;
+        opacity: 0.5;
+    }
+
     @media screen and (max-width: $layout-breakpoint-xl-large){
         padding: 5px;
     }
@@ -155,8 +164,13 @@ $user-image-height: 20px;
     color: $grayish-blue;
     caret-color: $moderate-blue;
     &:focus{
-        outline: 1px solid $moderate-blue
+        outline: 1px solid $moderate-blue;
+        cursor: grab;
     }
+    &:hover{
+        cursor: grab;
+    }
+
 
     @media screen and (max-width: $layout-breakpoint-small){
         width: auto;

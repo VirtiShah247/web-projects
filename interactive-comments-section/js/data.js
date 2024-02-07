@@ -66,4 +66,6 @@ const data = {
       }
     ]
   }
-localStorage.setItem("data", JSON.stringify(data));
+if(!localStorage.getItem("data")){
+  localStorage.setItem("data", JSON.stringify(data));
+}

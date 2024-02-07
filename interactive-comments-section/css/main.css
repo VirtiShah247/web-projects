@@ -28,12 +28,42 @@ button {
 }
 
 .container {
+  height: auto;
+  max-width: 100%;
+  padding: 50px 350px;
+}
+@media screen and (max-width: 1440px) {
+  .container {
+    padding: 0px 270px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .container {
+    padding: 50px 200px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .container {
+    padding: 50px 100px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 50px 30px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .container {
+    padding: 30px 20px;
+  }
+}
+
+.comments__container {
   display: grid;
   place-content: center;
   gap: 20px;
   height: auto;
   max-width: 100%;
-  padding: 50px 400px;
 }
 
 .user__container {
@@ -49,12 +79,30 @@ button {
   grid-template-columns: 40px repeat(4, 1fr);
   gap: 20px;
 }
+@media screen and (max-width: 768px) {
+  .user {
+    padding: 20px 20px;
+  }
+}
 
 .user__header {
   display: flex;
+  flex-wrap: wrap;
+  row-gap: 10px;
   align-items: center;
   column-gap: 20px;
   grid-area: 1/2/2/5;
+}
+@media screen and (max-width: 1200px) {
+  .user__header {
+    column-gap: 5px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .user__header {
+    grid-area: 1/1/2/7;
+    column-gap: 10px;
+  }
 }
 
 .user__image {
@@ -91,6 +139,11 @@ button {
   border-radius: 10px;
   padding: 10px 20px;
 }
+@media screen and (max-width: 576px) {
+  .user__content {
+    grid-area: 2/1/5/6;
+  }
+}
 
 .user__replying-to {
   color: hsl(238, 40%, 52%);
@@ -106,6 +159,13 @@ button {
   border-radius: 10px;
   grid-area: 1/1/5/2;
 }
+@media screen and (max-width: 576px) {
+  .score {
+    grid-area: 6/1/8/3;
+    flex-direction: row;
+    padding: 10px 0;
+  }
+}
 
 .score__count {
   color: hsl(238, 40%, 52%);
@@ -118,10 +178,25 @@ button {
   grid-template-columns: repeat(2, auto);
   justify-content: end;
 }
+@media screen and (max-width: 576px) {
+  .container__button {
+    grid-area: 6/3/8/7;
+  }
+}
 
 .button {
   padding: 10px;
   text-align: end;
+}
+@media screen and (max-width: 1200px) {
+  .button {
+    padding: 5px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .button {
+    padding: 10px;
+  }
 }
 
 .button__value {
@@ -133,19 +208,33 @@ button {
   color: hsl(358, 79%, 66%);
 }
 
+.user__current {
+  display: block;
+}
+
 .form {
-  grid-area: 1/2/3/6;
   display: grid;
-  grid-template-columns: 80% auto;
+  grid-template-columns: auto 3fr 0.8fr;
   align-items: start;
   column-gap: 20px;
+}
+@media screen and (max-width: 576px) {
+  .form img {
+    grid-area: 2/1/3/2;
+  }
+}
+@media screen and (max-width: 576px) {
+  .form {
+    grid-template-columns: repeat(2, auto);
+    row-gap: 10px;
+  }
 }
 
 .textarea {
   resize: none;
   height: 100px;
-  width: 500px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 590px;
   padding: 10px 20px;
   outline: 2px solid hsl(223, 19%, 93%);
   border-radius: 10px;
@@ -155,6 +244,12 @@ button {
 }
 .textarea:focus {
   outline: 1px solid hsl(238, 40%, 52%);
+}
+@media screen and (max-width: 576px) {
+  .textarea {
+    width: auto;
+    grid-area: 1/1/2/3;
+  }
 }
 
 .button__current-user {
@@ -167,10 +262,20 @@ button {
   font-size: 16px;
   padding: 10px 20px;
 }
+@media screen and (max-width: 576px) {
+  .button__current-user {
+    grid-area: 2/2/3/3;
+  }
+}
 
 .button__update {
   display: none;
   grid-area: 6/5/7/6;
+}
+@media screen and (max-width: 576px) {
+  .button__update {
+    grid-area: 5/5/6/6;
+  }
 }
 
 .content--false {
@@ -189,21 +294,40 @@ button {
   padding-left: 40px;
   border-left: 3px solid hsl(223, 19%, 93%);
 }
+@media screen and (max-width: 1200px) {
+  .replies {
+    margin-left: 30px;
+    padding-left: 30px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .replies {
+    margin-left: 0px;
+    padding-left: 20px;
+  }
+}
 
 .modal {
   display: none;
-  padding: 20px;
-  width: 20%;
-  position: absolute;
-  top: 50%;
-  right: 50%;
-  transform: translate(50%, 50%);
+  padding: 25px;
+  width: auto;
+  max-width: 320px;
+  position: fixed;
+  top: 30%;
+  transform: translateX(50%);
   background-color: hsl(0, 0%, 100%);
 }
 .modal p {
   color: hsl(211, 10%, 45%);
   font-size: 13.6px;
   padding: 15px 0;
+}
+@media screen and (max-width: 576px) {
+  .modal {
+    transform: translateX(0px);
+    margin-right: 20px;
+    width: auto;
+  }
 }
 
 h3 {
@@ -215,11 +339,12 @@ h3 {
   color: hsl(0, 0%, 100%);
   font-weight: 700;
   border-radius: 5px;
-  padding: 10px 21px 12px;
+  padding: 10px 15px 12px;
 }
 .button__confirm--no {
   background-color: hsl(211, 10%, 45%);
   margin-right: 5px;
+  margin-bottom: 5px;
 }
 .button__confirm--yes {
   background-color: hsl(358, 79%, 66%);

@@ -1,12 +1,12 @@
 let user_data = JSON.parse(localStorage.getItem("data"));
-
+const sortUserData = () => {
+    user_data.comments.sort((a, b) => b.score - a.score);
+}
 const findNextId = () => {
-    console.log("find next id array ",user_data.comments);
     let length = user_data.comments.length;
-    user_data.comments.forEach(user => {
+    user_data.comments.forEach((user) => {
         length += user.replies.length;
     });
-    console.log(length);
     return length;
 }
 
@@ -14,21 +14,18 @@ const addNewComment = async () => {
     event.preventDefault();
     let content = document.getElementById("comment__text");
     const contentValue = content.value.trim();
-    console.log(contentValue);
     content.value = "";
     const nextId = await findNextId() + 1;
-    console.log(nextId);
     const newComment = {
         "id": nextId,
         "content": contentValue,
         "score": 0,
+        "replies": [],
         "user": user_data.currentUser,
         "createdAt": "1 minute ago"
     }
-    const newUserData = JSON.parse(JSON.stringify(user_data));
-    newUserData.comments.push(newComment);
-    console.log(user_data);
-    localStorage.setItem("data", JSON.stringify(newUserData));
+    user_data.comments.push(newComment);
+    localStorage.setItem("data", JSON.stringify(user_data));
     displayUser();
 }
 const increaseScore = (userId, replyStatus) => {
@@ -62,11 +59,11 @@ const decreaseScore = (userId, replyStatus) => {
     displayUser();
 }
 const showModal = () => {
-    document.querySelector(".container").style.opacity = "0.5";
+    document.querySelector(".comments__container").style.opacity = "0.2";
     document.querySelector(".modal__confirm-delete").style.display = "block";
 }
 const hideModal = () => {
-    document.querySelector(".container").style.opacity = "1";
+    document.querySelector(".comments__container").style.opacity = "1";
     document.querySelector(".modal__confirm-delete").style.display = "none";
 }
 const deleteCommentConfirm = (userId, replyStatus) => {
@@ -88,20 +85,18 @@ const deleteComment = (userId, replyStatus) => {
 }
 const updateComment = (userId) => {
     const contentEdit = document.getElementById(`user__content--${userId}`);
-    console.log(contentEdit.innerHTML);
     const buttonUpdate = document.getElementById(`button__update--${userId}`);
-    console.log(buttonUpdate);
     buttonUpdate.style.display = "none";
     contentEdit.contentEditable = false;
 }
 const editComment = (userId) => {
     document.getElementById(`button__update--${userId}`).onclick = () => updateComment(userId);
-    console.log(userId);
-    console.log(document.getElementById(`user__content--${userId}`));
     const contentEdit = document.getElementById(`user__content--${userId}`);
     const buttonUpdate = document.getElementById(`button__update--${userId}`);
     contentEdit.contentEditable = true;
-    contentEdit.focus();
+    if(contentEdit.contentEditable === true){
+        contentEdit.focus();
+    }
     var range = document.createRange();
     range.selectNodeContents(contentEdit);
     range.collapse(false);
@@ -122,13 +117,10 @@ const findNestedObj = (keyToFind, valToFind) =>{
 };
 const addNewReply = (userId, selectorName) => {
     event.preventDefault();
-    console.log(userId);
     let content = document.getElementById(`reply__text--${userId}`);
     const contentValue = content.value.trim();
-    console.log(contentValue);
     content.value = "";
     const nextId = findNextId() + 1;
-    console.log("nextId", nextId);
     const newComment = {
         "id": nextId,
         "content": contentValue,
@@ -138,7 +130,6 @@ const addNewReply = (userId, selectorName) => {
     }
     if(selectorName.id.substr(0, 7) === 'replies'){
         userId = parseInt(selectorName.id.substr(7));
-        console.log("userId", userId);
     }
     user_data.comments.map((user) => {
         if(user.id === userId){
@@ -146,18 +137,16 @@ const addNewReply = (userId, selectorName) => {
         }
         return user;
     });
-    console.log(user_data);
     localStorage.setItem("data", JSON.stringify(user_data));
     displayUser();
 
 }
 const replyComment = (userId, selectorName) => {
-    document.getElementById(`reply__container--${userId}`).style.display = "grid";
+    document.getElementById(`reply__container--${userId}`).style.display = "block";
     document.getElementById(`reply--${userId}`).addEventListener("click", () => addNewReply(userId, selectorName));
 }
 
 const userCode = (user, selectorClassName, selectorIdName) => {
-    console.log(selectorIdName.slice(1));
     const userCode = `
     <div class="user__container">
         <div class="user" id="user--${user.id}">
@@ -217,8 +206,8 @@ const userCode = (user, selectorClassName, selectorIdName) => {
             
         </div>
         <div class="user user__current user__current--reply" id="reply__container--${user.id}">
-            <img src=${user_data.currentUser.image.png} alt="image-juliusomo" class="user__image">
             <form class="form" id="form--${user.id}">
+                <img src=${user_data.currentUser.image.png} alt="image-juliusomo" class="user__image">
                 <textarea cols="20" placeholder="Add a reply..." class="textarea" id="reply__text--${user.id}" required></textarea>
                 <button class="button button__current-user button--reply"  id="reply--${user.id}" type="submit">
                     Reply
@@ -230,40 +219,29 @@ const userCode = (user, selectorClassName, selectorIdName) => {
 
     document.querySelector(selectorIdName).innerHTML += userCode;
 
-    // document.getElementById(`button__increase--${user.id}`).addEventListener("click", increaseScore);
 }
 const displayUser = () => {
     user_data = JSON.parse(localStorage.getItem("data"));
-    document.querySelector("#container").innerHTML = ``;
+    sortUserData();
+    document.querySelector("#comments__container").innerHTML = ``;
     for (user of user_data.comments) {
-        // console.log(user.id);
-        userCode(user, ".container", "#container");
-        // console.log(user.id);
-        // console.log(document.getElementById(`button__increase--${user.id}`).innerHTML);
-        // document.querySelector(`#button__increase--${user.id}`).onclick = function(){
-        //     alert("buttons is clicked");
-        // };
+        userCode(user, ".comments__container", "#comments__container");
         const repliesDiv = `
                 <div class="replies" id="replies${user.id}">
                 </div>
             `
         if (user.replies !== undefined && user.replies.length !== 0) {
             
-            document.querySelector("#container").innerHTML += repliesDiv;
+            document.querySelector("#comments__container").innerHTML += repliesDiv;
             for (reply of user.replies) {
-                // console.log(reply.id);
                 userCode(reply, ".replies" ,`#replies${user.id}`);
-                // console.log(reply.id);
-                // document.querySelector(`#button__increase--${reply.id}`).onclick = function(){
-                //     alert("buttons is clicked");
-                // };
             }
         }
     }
     const currentUserCommentDiv = `
     <div class="user user__current user__current--comment">
-        <img src=${user_data.currentUser.image.png} alt="image-juliusomo" class="user__image">
         <form class="form">
+            <img src=${user_data.currentUser.image.png} alt="image-juliusomo" class="user__image">
             <textarea cols="20" placeholder="Add a comment..." class="textarea" id="comment__text" required></textarea>
             <button class="button button__current-user button--send" type="submit">
                 Send
@@ -271,20 +249,9 @@ const displayUser = () => {
         </form>
     </div>
 `
-    document.querySelector("#container").innerHTML += currentUserCommentDiv;
+    document.querySelector("#comments__container").innerHTML += currentUserCommentDiv;
     document.querySelector(".button--send").addEventListener("click", addNewComment);
 
 }
 
 displayUser();
-
-
-
-//Hello, this is just for testing. Testing1 Testing2 Testing3 Testing4 Testing5
-//  Testing6 Testing7 Testing8 Testing9 Testing10 Testing11 Testing12.
-
-//   ${
-//     (user.user.username === user_data.currentUser.username) ?
-//     `<span class="content-editable" contenteditable="true">${user.content}</span>` :
-//     user.content
-// }

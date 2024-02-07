@@ -1,8 +1,30 @@
+@use "../abstracts" as *;
 .container{
+    height: auto;
+    max-width: 100%;
+    padding: 50px 350px;
+    @media screen and (max-width: $layout-breakpoint-xxl-large){
+        padding: 0px 270px;
+    }
+    @media screen and (max-width: $layout-breakpoint-xl-large){
+        padding: 50px 200px;
+    }
+    @media screen and (max-width: $layout-breakpoint-large){
+        padding: 50px 100px;
+    }
+    @media screen and (max-width: $layout-breakpoint-medium){
+        padding: 50px 30px;
+    }
+    @media screen and (max-width: $layout-breakpoint-small){
+        padding: 30px 20px;
+    }
+   
+}
+.comments__container{
     display: grid;
     place-content:center;
     gap: 20px;
     height: auto;
     max-width: 100%;
-    padding: 50px 400px;
+    
 }

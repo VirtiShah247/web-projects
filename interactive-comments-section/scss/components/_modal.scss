@@ -1,34 +1,47 @@
 @use "../abstracts" as *;
-.modal{
+
+.modal {
     display: none;
-    padding: 20px;
-    width: 20%;
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    transform: translate(50%, 50%);
+    padding: 25px;
+    width: auto;
+    max-width: 320px;
+    position: fixed;
+    top: 30%;
+    transform: translateX(50%);
     background-color: $white;
-    & p{
+
+    & p {
         color: $grayish-blue;
         font-size: $font-size-paragraph * 0.85;
         padding: 15px 0;
     }
 
+    @media screen and (max-width: $layout-breakpoint-small) {
+        transform: translateX(0px);
+        margin-right: 20px;
+        width: auto;
+    }
+
 }
-h3{
+
+h3 {
     font-weight: $font-weight-semi-bold;
 }
-.button__confirm{
+
+.button__confirm {
     text-transform: uppercase;
     color: $white;
     font-weight: $font-weight-bold;
     border-radius: 5px;
-    padding: 10px 21px 12px;
-    &--no{
+    padding: 10px 15px 12px;
+    &--no {
         background-color: $grayish-blue;
         margin-right: 5px;
+        margin-bottom: 5px;
     }
-    &--yes{
+
+    &--yes {
         background-color: $soft-red;
     }
+
 }

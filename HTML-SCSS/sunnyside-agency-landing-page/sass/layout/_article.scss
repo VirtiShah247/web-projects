@@ -21,7 +21,6 @@ $article-image-height: 100px;
     display: grid;
     grid-template-columns: repeat(3, 33.3%);
     padding: 0 150px;
-    // column-gap: 50px;
 
     @media screen and (max-width: $layout-breakpoint-xl-large){
         padding: 50px;

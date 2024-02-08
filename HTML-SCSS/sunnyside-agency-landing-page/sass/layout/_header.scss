@@ -3,13 +3,14 @@
     background: url(../images/desktop/image-header.jpg) no-repeat;
     background-size: 100% 100%;
     color: $white;
-    // height: 100%;
-    // width: 100%;
     height: 100%;
-    max-height: auto;
     max-width: 100%;
     text-align: center;
 }
 .header__image--arrow-down{
     margin-top: 100px;
+
+    @media screen and (max-width: $layout-breakpoint-small){
+        margin-top: 49px;
+    }
 }

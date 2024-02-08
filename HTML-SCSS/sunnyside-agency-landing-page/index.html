@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="./css/main.css">
@@ -20,30 +19,33 @@
           <img src="./images/icon-hamburger.svg" alt="icon-hamburger" class="hamburger__image">
         </div>
         <div class="menu">
-          <div class="menu__item menu__item--about">
+          <div class="menu__item">
             <a href="#" class="menu__link">About</a>
           </div>
-          <div class="menu__item menu__item--services">
+          <div class="menu__item">
             <a href="#" class="menu__link">Services</a>
           </div>
-          <div class="menu__item menu__item--projects">
+          <div class="menu__item">
             <a href="#" class="menu__link">Projects</a>
           </div>
-          <div class="menu__item menu__item--contact">
-            <a href="#" class="menu__link">Contact</a>
+          <div class="menu__item">
+            <a href="#" class="menu__link">
+              <button class="button button--contact">Contact</button>
+            </a>
           </div>
-        </div>
-       
+        </div> 
       </navbar>
       <h1 class="header__title heading1">
         We are creatives
       </h1>
+      <a href="#section">
       <img src="./images/icon-arrow-down.svg" alt="icon-arrow-down" class="header__image header__image--arrow-down">
+      </a>
     </header>
   </div>
-  <section class="section">
-    <div class="section__row">
-      <div class="section__content section__content--transform">
+  <section class="section" id="section">
+    <div class="section__row section__row--first">
+      <div class="section__content">
         <h2 class="heading2">Transform your brand</h2>
         <p>
           We are a full-service creative agency specializing in helping brands grow fast.
@@ -60,13 +62,8 @@
       </picture>
 
     </div>
-    <div class="section__row">
-      <picture>
-        <source media="(max-width: 576px)" srcset="./images/mobile/image-stand-out.jpg">
-        <img src="./images/desktop/image-stand-out.jpg" alt="image-stand-out"
-          class="section__image section__image--stand-out">
-      </picture>
-      <div class=" section__content section__content--stand-out">
+    <div class="section__row section__row--second">
+      <div class=" section__content">
         <h2 class="heading2">
           Stand out to the right audience
         </h2>
@@ -78,8 +75,13 @@
           Learn more
         </button>
       </div>
+      <picture>
+        <source media="(max-width: 576px)" srcset="./images/mobile/image-stand-out.jpg">
+        <img src="./images/desktop/image-stand-out.jpg" alt="image-stand-out"
+          class="section__image section__image--stand-out">
+      </picture>
     </div>
-    <div class="section__row">
+    <div class="section__row section__row--third">
       <div class="section__content section__content--graphic-design">
         <h3 class="heading3">
           Graphic design

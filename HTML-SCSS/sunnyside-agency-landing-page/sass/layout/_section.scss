@@ -1,0 +1,107 @@
+@use "../abstracts" as *;
+
+$image-width: 759px;
+$image-height: 600px;
+
+.section__row {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+
+    &--first>{
+        .section__content{
+            padding: 0 80px 0 110px;
+            @media screen and (max-width: $layout-breakpoint-small){
+               grid-area: 2 / 1 / 3 / 2;
+                padding: 0 50px 0 30px;  
+            }
+        }
+    }
+    &--second>{
+        .section__content{
+            grid-column: 2;
+            padding: 0 110px 0 80px;
+            @media screen and (max-width: $layout-breakpoint-small){
+                grid-column: 1;
+                padding: 0 30px;
+             }
+        }
+        picture{
+            grid-column: 1;
+            grid-row: 1;
+        }
+    }
+
+    @media screen and (max-width: $layout-breakpoint-small){
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(2, 1fr);
+        text-align: center;
+    }   
+}
+.section__content {
+    display: grid;
+    align-content: center;
+    
+    @media screen and (max-width: $layout-breakpoint-small){
+        justify-items: center;
+    }
+}
+
+picture img{
+    display: block;
+}
+.section__image {
+    width: $image-width;
+    height: auto;
+    max-width: 100%;
+
+    @media screen and (max-width: $layout-breakpoint-medium){
+        height: $image-height * 0.75;
+    }
+}
+.section__content p {
+    line-height: 140%;
+    color: $dark-grayish-blue;
+    margin: 50px 0;
+
+    @media screen and (max-width: $layout-breakpoint-large){
+        margin: 20px 0;
+    }
+    @media screen and (max-width: $layout-breakpoint-small){
+        margin: 10px 0;
+    }
+}
+.section__row--third .section__content {
+    justify-content: end;
+    align-content: end;
+    height: 600px;
+    max-width: 100%;
+    text-align: center;
+
+    & p {
+        margin: 20px 0 50px;
+        padding: 0 170px;
+
+        @media screen and (max-width: $layout-breakpoint-xl-large){
+            padding: 0 100px;
+        }
+        @media screen and (max-width: $layout-breakpoint-large){
+            padding: 0 40px;
+        }
+    }
+
+    &--photography {
+        background: url(./../images/desktop/image-photography.jpg) no-repeat;
+        background-size: 100% 100%;
+        color: $dark-blue;
+    }
+
+    &--graphic-design {
+        background: url(./../images/desktop/image-graphic-design.jpg) no-repeat;
+        background-size: 100% 100%;
+        color: $dark-desaturated-cyan;
+    }
+
+  
+
+}
+// @include backgroundImage($photography: true, $graphic-design: true, $transform: false, $stand-out: false);

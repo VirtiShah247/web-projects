@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap');
+
+// primary
+$soft-red: hsl(7, 99%, 70%);
+$yellow: hsl(51, 100%, 49%);
+$dark-desaturated-cyan: hsl(167, 40%, 24%); // graphic design text
+$dark-blue: hsl(198, 62%, 26%); // photography text
+$dark-moderate-cyan: hsl(168, 34%, 41%); // footer
+// neutral
+$very-dark-desaturated-blue: hsl(212, 27%, 19%);
+$very-dark-grayish-blue: hsl(213, 9%, 39%);
+$dark-grayish-blue: hsl(232, 10%, 55%);
+$grayish-blue: hsl(210, 4%, 67%);
+$white: hsl(0, 0%, 100%);
+
+//fonts
+$font-size-default: 18px;
+$font-family-barlow: 'Barlow', sans-serif !default;
+$font-family-fraunces: 'Fraunces', serif;
+
+$fw-600: 600;
+$fw-700: 700;
+$fw-900: 900;
+$font-weight-default: $fw-600;
+$font-weight-semi-bold: $fw-700;
+$font-weight-bold: $fw-900;

@@ -1,0 +1,40 @@
+@use "../abstracts" as *;
+.heading1{
+    font-size: 55px;
+    font-family: $font-family-fraunces;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    word-spacing: 5px;
+
+    @media screen and (max-width: $layout-breakpoint-small){
+        font-size: 36px;
+    }
+}
+.heading2{
+    font-size: 40px;
+    font-family: $font-family-fraunces;
+   font-weight: $font-weight-bold; 
+
+   @media screen and (max-width: $layout-breakpoint-small){
+    font-size: 30px;
+   }
+}
+
+.heading3{
+    font-size: 30px;
+    font-family: $font-family-fraunces;
+    font-weight: $font-weight-bold; 
+
+}
+.heading4{
+    font-size: 20px;
+    font-family: $font-family-fraunces;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    word-spacing: 5px;
+}
+.heading5{
+    font-size: 18px;
+    font-family: $font-family-fraunces;
+    font-weight: $font-weight-bold; 
+}

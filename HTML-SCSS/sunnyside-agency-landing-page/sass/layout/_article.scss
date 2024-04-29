@@ -1,0 +1,62 @@
+@use "../abstracts" as *;
+$article-image-width: 100px;
+$article-image-height: 100px;
+.article{
+    text-align: center;
+    padding: 150px 0;
+
+    @media screen and (max-width: $layout-breakpoint-small){
+        padding: 50px 0;
+    }
+}
+.article>h4{
+    color: $dark-grayish-blue;
+    padding-bottom: 50px;
+
+    @media screen and (max-width: $layout-breakpoint-small){
+        padding-bottom: 30px;
+    }
+}
+.article__row{
+    display: grid;
+    grid-template-columns: repeat(3, 33.3%);
+    padding: 0 150px;
+
+    @media screen and (max-width: $layout-breakpoint-xl-large){
+        padding: 50px;
+    }
+    @media screen and (max-width: $layout-breakpoint-small){
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(3, auto);
+        row-gap: 50px;
+        padding: 20px;
+    }
+}
+.article__item{
+    padding: 0 30px;
+
+    @media screen and (max-width: $layout-breakpoint-xl-large){
+        padding: 0 15px;
+    }
+}
+.article__image{
+    width: $article-image-width;
+    height: $article-image-height;
+    border-radius: $article-image-width * 0.5;
+}
+.article__review{
+    padding: 50px 0;
+    color: $very-dark-grayish-blue;
+    line-height: 160%;
+
+    @media screen and (max-width: $layout-breakpoint-small){
+        padding: 20px 0;
+    }
+}
+.article__reviewer-designation{
+    font-size: 15px;
+    color: $dark-grayish-blue;
+    padding-top: 10px;
+}
+
+

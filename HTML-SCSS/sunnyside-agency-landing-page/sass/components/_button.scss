@@ -1,0 +1,49 @@
+@use "../abstracts" as *;
+$button-height: 50px;
+$button-width: 150px;
+$warning-color: $yellow;
+$danger-color: $soft-red;
+.button {
+    font-family: $font-family-fraunces;
+    text-transform: uppercase;
+    background-color: $white;
+    border: none;
+    border-radius: 25px;
+    height: 10px;
+    width: 150px;
+    font-size: 18px;
+}
+.button--contact {
+    height: $button-height;
+    width: $button-width;
+    background-color: $white;
+    border-radius: $button-width * 0.5;
+    color: $very-dark-desaturated-blue;
+    text-transform: uppercase;
+    font-family: $font-family-fraunces;
+    font-size: 15px;
+    position: relative;
+    bottom: 12px;
+    display: grid;
+    place-items: center;
+    &:hover {
+        background-color: rgba($color: $white, $alpha: 0.1);
+        color: rgba($color: $white, $alpha: 0.8);
+        cursor: pointer;
+    }
+
+}
+.button--warning {
+    box-shadow: 0px 17px 3px rgba($color: $warning-color, $alpha: 0.4);
+
+    &:hover{
+    box-shadow: 0px 17px 3px rgba($color: $warning-color, $alpha: 1.0);
+    }
+}
+.button--danger {
+    box-shadow: 0px 17px 3px rgba($color: $danger-color, $alpha: 0.4);
+
+    &:hover{
+    box-shadow: 0px 17px 3px rgba($color: $danger-color, $alpha: 1.0);
+    }
+}

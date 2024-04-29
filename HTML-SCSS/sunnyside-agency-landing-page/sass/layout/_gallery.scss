@@ -1,0 +1,19 @@
+@use "../abstracts" as *;
+
+$gallery-image-width: 380px;
+$gallery-image-height: 500px;
+.gallery{
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+
+    @media screen and (max-width: $layout-breakpoint-small){
+        grid-template-columns: repeat(2, 50%);
+        grid-template-rows: repeat(2, 50%)
+    }
+}
+.gallery__image{
+    width: $gallery-image-width;
+    height: $gallery-image-height;
+    height: auto;
+    max-width: 100%;
+}
